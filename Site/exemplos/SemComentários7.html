@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmos Frontiers | O Futuro da Exploração Espacial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e40af;
+            --accent: #38bdf8;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #020617;
+            color: #e2e8f0;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+        }
+        
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(30, 64, 175, 0.3) 0%, rgba(15, 23, 42, 0) 70%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .glow {
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.7);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--secondary);
+        }
+        
+        .timeline-line::after {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+        }
+        
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+        
+        .stats-counter {
+            transition: all 0.5s ease-out;
+        }
+        
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 4px 4px 0 0;
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .grid-pattern {
+            background-image: 
+                linear-gradient(rgba(30, 64, 175, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(30, 64, 175, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-black z-50 flex items-center justify-center transition-opacity duration-500">
+        <div class="text-center">
+            <div class="w-24 h-24 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-4"></div>
+            <p class="text-blue-400 font-medium tracking-wider">CARREGANDO COSMOS...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 bg-opacity-90 backdrop-blur-md bg-gray-900 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center space-x-2">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-blue-400 flex items-center justify-center">
+                            <i class="fas fa-rocket text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-200">COSMOS FRONTIERS</span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-blue-300 hover:text-white transition">Início</a>
+                    <a href="#missions" class="text-gray-400 hover:text-white transition">Missões</a>
+                    <a href="#technology" class="text-gray-400 hover:text-white transition">Tecnologia</a>
+                    <a href="#timeline" class="text-gray-400 hover:text-white transition">Linha do Tempo</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition">Contato</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="hidden md:block px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-500 rounded-full font-medium hover:from-blue-500 hover:to-blue-400 transition-all duration-300 shadow-lg shadow-blue-500/20">
+                        Acesso Exclusivo
+                    </button>
+                    <button id="mobile-menu-button" class="md:hidden text-gray-400 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-900 border-t border-gray-800">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#home" class="block text-blue-300 hover:text-white transition">Início</a>
+                <a href="#missions" class="block text-gray-400 hover:text-white transition">Missões</a>
+                <a href="#technology" class="block text-gray-400 hover:text-white transition">Tecnologia</a>
+                <a href="#timeline" class="block text-gray-400 hover:text-white transition">Linha do Tempo</a>
+                <a href="#contact" class="block text-gray-400 hover:text-white transition">Contato</a>
+                <button class="w-full px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-500 rounded-full font-medium hover:from-blue-500 hover:to-blue-400 transition-all duration-300 shadow-lg shadow-blue-500/20">
+                    Acesso Exclusivo
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg pt-32 pb-20 md:pt-40 md:pb-32 relative overflow-hidden">
+        <div class="hero-gradient absolute inset-0 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-blue-100">Explorando</span>
+                        <span class="text-white">as Fronteiras do Cosmos</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8 max-w-2xl">
+                        Junte-se à próxima era da exploração espacial. Descubra missões inovadoras, tecnologia de ponta e o futuro da humanidade entre as estrelas.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-500 rounded-full font-medium hover:from-blue-500 hover:to-blue-400 transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/40 flex items-center justify-center">
+                            <i class="fas fa-play-circle mr-2"></i> Vídeo de Lançamento
+                        </button>
+                        <button class="px-8 py-3 border border-blue-500 text-blue-400 rounded-full font-medium hover:bg-blue-900/30 transition-all duration-300 flex items-center justify-center">
+                            <i class="fas fa-book-open mr-2"></i> Relatório Anual
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -top-10 -left-10 w-32 h-32 bg-blue-600 rounded-full filter blur-3xl opacity-20"></div>
+                        <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-400 rounded-full filter blur-3xl opacity-20"></div>
+                        <img src="https://images.unsplash.com/photo-1454789548928-5a32992e8d38?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                             alt="Foguete decolando" 
+                             class="rounded-2xl shadow-2xl border-4 border-blue-500/20 floating">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center scroll-indicator">
+            <a href="#stats" class="text-blue-400 animate-bounce">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="py-16 bg-gray-900 grid-pattern">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-blue-400 mb-2 stats-counter" data-target="42">0</div>
+                    <div class="text-gray-400 uppercase text-sm tracking-wider">Missões Ativas</div>
+                </div>
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-blue-400 mb-2 stats-counter" data-target="17">0</div>
+                    <div class="text-gray-400 uppercase text-sm tracking-wider">Planetas Descobertos</div>
+                </div>
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-blue-400 mb-2 stats-counter" data-target="128">0</div>
+                    <div class="text-gray-400 uppercase text-sm tracking-wider">Satélites Lançados</div>
+                </div>
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-blue-400 mb-2 stats-counter" data-target="2024">0</div>
+                    <div class="text-gray-400 uppercase text-sm tracking-wider">Ano da Primeira Base Lunar</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Missions Section -->
+    <section id="missions" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-blue-400 font-medium tracking-wider">EXPLORAÇÃO ESPACIAL</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-4 mb-6">Nossas <span class="glow">Missões</span> Pioneiras</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Conheça os projetos revolucionários que estão redefinindo os limites do possível e preparando o caminho para a colonização espacial.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Mission 1 -->
+                <div class="mission-card bg-gray-800 rounded-xl overflow-hidden border border-gray-700/50 card-hover hover-scale">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1457364559154-aa2644600ebb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                             alt="Base Lunar" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-blue-600 text-white text-xs px-3 py-1 rounded-full">EM ANDAMENTO</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Artemis Lunar Base</h3>
+                        <p class="text-gray-400 mb-4">Primeira base permanente na Lua, servindo como trampolim para Marte e além.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-blue-400">
+                                <i class="fas fa-calendar-alt mr-2"></i>
+                                <span class="text-sm">2024-2030</span>
+                            </div>
+                            <a href="#" class="text-blue-400 hover:text-white transition flex items-center">
+                                Detalhes <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mission 2 -->
+                <div class="mission-card bg-gray-800 rounded-xl overflow-hidden border border-gray-700/50 card-hover hover-scale">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                             alt="Marte" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-purple-600 text-white text-xs px-3 py-1 rounded-full">PRÓXIMA FASE</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Mars Terraforming Initiative</h3>
+                        <p class="text-gray-400 mb-4">Preparando Marte para a colonização humana através de técnicas de terraformação.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-blue-400">
+                                <i class="fas fa-calendar-alt mr-2"></i>
+                                <span class="text-sm">2030-2050</span>
+                            </div>
+                            <a href="#" class="text-blue-400 hover:text-white transition flex items-center">
+                                Detalhes <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mission 3 -->
+                <div class="mission-card bg-gray-800 rounded-xl overflow-hidden border border-gray-700/50 card-hover hover-scale">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                             alt="Galáxia" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-green-600 text-white text-xs px-3 py-1 rounded-full">EM DESENVOLVIMENTO</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Interstellar Probe</h3>
+                        <p class="text-gray-400 mb-4">Sonda interestelar para explorar sistemas estelares vizinhos em busca de planetas habitáveis.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-blue-400">
+                                <i class="fas fa-calendar-alt mr-2"></i>
+                                <span class="text-sm">2040-2060</span>
+                            </div>
+                            <a href="#" class="text-blue-400 hover:text-white transition flex items-center">
+                                Detalhes <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <button class="px-8 py-3 border border-blue-500 text-blue-400 rounded-full font-medium hover:bg-blue-900/30 transition-all duration-300">
+                    Ver Todas as Missões <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="py-20 bg-gray-900/50 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-6 relative">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <span class="text-blue-400 font-medium tracking-wider">INOVAÇÃO TECNOLÓGICA</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-4 mb-6">Tecnologias que <span class="glow">Impulsionam</span> a Exploração</h2>
+                    <p class="text-gray-400 mb-8">
+                        Desenvolvemos sistemas avançados que tornam possível a exploração espacial sustentável e a colonização de outros mundos.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-600/20 p-3 rounded-lg mr-4">
+                                <i class="fas fa-atom text-blue-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-2">Propulsão Nuclear</h4>
+                                <p class="text-gray-400">Motores de propulsão nuclear que reduzem o tempo de viagem para Marte em até 75%.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-600/20 p-3 rounded-lg mr-4">
+                                <i class="fas fa-leaf text-blue-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-2">Sistemas de Suporte Vital</h4>
+                                <p class="text-gray-400">Ecossistemas fechados que reciclam 98% da água e produzem oxigênio através de algas modificadas.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-600/20 p-3 rounded-lg mr-4">
+                                <i class="fas fa-robot text-blue-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-2">Robótica Autônoma</h4>
+                                <p class="text-gray-400">Robôs autônomos para construção de habitats antes da chegada dos colonos humanos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-800/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <div class="w-full h-96 bg-gradient-to-br from-blue-900/30 to-gray-900/70 flex items-center justify-center">
+                                <div class="text-center p-8">
+                                    <i class="fas fa-play-circle text-6xl text-blue-400 mb-4 opacity-70"></i>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Demonstração Tecnológica</h3>
+                                    <p class="text-gray-400 mb-6">Assista ao nosso mais recente teste de propulsão em ambiente de microgravidade.</p>
+                                    <button class="px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-500 rounded-full font-medium hover:from-blue-500 hover:to-blue-400 transition-all duration-300 shadow-lg shadow-blue-500/20">
+                                        Assistir Vídeo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-blue-400 font-medium tracking-wider">NOSSA JORNADA</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-4 mb-6">Linha do Tempo da <span class="glow">Exploração</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Desde nossos primeiros lançamentos até as ambiciosas missões planejadas para as próximas décadas.
+                </p>
+            </div>
+            
+            <div class="relative max-w-3xl mx-auto">
+                <div class="timeline-line absolute left-8 md:left-1/2 -translate-x-1/2 h-full"></div>
+                
+                <div class="space-y-8">
+                    <!-- Timeline Item 1 -->
+                    <div class="relative pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-8">
+                        <div class="md:text-right md:pr-12 mb-4 md:mb-0">
+                            <div class="text-blue-400 font-medium">2022</div>
+                        </div>
+                        <div class="relative timeline-item pl-8 md:pl-12">
+                            <div class="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50">
+                                <h3 class="text-xl font-bold text-white mb-2">Primeiro Módulo Lunar</h3>
+                                <p class="text-gray-400">Lançamento bem-sucedido do módulo de habitat lunar para a missão Artemis.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 2 -->
+                    <div class="relative pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-8">
+                        <div class="md:text-right md:pr-12 mb-4 md:mb-0">
+                            <div class="text-blue-400 font-medium">2024</div>
+                        </div>
+                        <div class="relative timeline-item pl-8 md:pl-12">
+                            <div class="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50">
+                                <h3 class="text-xl font-bold text-white mb-2">Pouso Tripulado na Lua</h3>
+                                <p class="text-gray-400">Primeira equipe de astronautas pousa no polo sul lunar para iniciar construção da base.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 3 -->
+                    <div class="relative pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-8">
+                        <div class="md:text-right md:pr-12 mb-4 md:mb-0">
+                            <div class="text-blue-400 font-medium">2028</div>
+                        </div>
+                        <div class="relative timeline-item pl-8 md:pl-12">
+                            <div class="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50">
+                                <h3 class="text-xl font-bold text-white mb-2">Base Lunar Operacional</h3>
+                                <p class="text-gray-400">Primeira base lunar permanente capaz de abrigar 12 astronautas por 6 meses.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 4 -->
+                    <div class="relative pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-8">
+                        <div class="md:text-right md:pr-12 mb-4 md:mb-0">
+                            <div class="text-blue-400 font-medium">2032</div>
+                        </div>
+                        <div class="relative timeline-item pl-8 md:pl-12">
+                            <div class="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50">
+                                <h3 class="text-xl font-bold text-white mb-2">Primeira Missão Tripulada a Marte</h3>
+                                <p class="text-gray-400">Envio da primeira equipe de astronautas para uma missão de 18 meses em Marte.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 5 -->
+                    <div class="relative pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-8">
+                        <div class="md:text-right md:pr-12 mb-4 md:mb-0">
+                            <div class="text-blue-400 font-medium">2040</div>
+                        </div>
+                        <div class="relative timeline-item pl-8 md:pl-12">
+                            <div class="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50">
+                                <h3 class="text-xl font-bold text-white mb-2">Colônia Marciana Permanente</h3>
+                                <p class="text-gray-400">Estabelecimento da primeira colônia autossustentável em Marte com 100 habitantes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-900 to-blue-900/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-blue-400 font-medium tracking-wider">DEPOIMENTOS</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-4 mb-6">O que os <span class="glow">Especialistas</span> Dizem</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700/50">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Dr. Elena Rodriguez" class="w-16 h-16 rounded-full border-2 border-blue-500">
+                        <div class="ml-4">
+                            <h4 class="text-white font-bold">Dr. Elena Rodriguez</h4>
+                            <p class="text-blue-400 text-sm">Astrofísica, NASA</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "A tecnologia de propulsão desenvolvida pela Cosmos Frontiers é revolucionária. Eles estão reduzindo drasticamente o tempo de viagem para Marte."
+                    </p>
+                    <div class="mt-6 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700/50">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Prof. James Chen" class="w-16 h-16 rounded-full border-2 border-blue-500">
+                        <div class="ml-4">
+                            <h4 class="text-white font-bold">Prof. James Chen</h4>
+                            <p class="text-blue-400 text-sm">Engenheiro Aeroespacial</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Nunca vi um projeto tão ambicioso e bem executado. Sua abordagem para a colonização lunar é pragmaticamente inovadora."
+                    </p>
+                    <div class="mt-6 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700/50">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dra. Amina Diallo" class="w-16 h-16 rounded-full border-2 border-blue-500">
+                        <div class="ml-4">
+                            <h4 class="text-white font-bold">Dra. Amina Diallo</h4>
+                            <p class="text-blue-400 text-sm">Exobiologista, ESA</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Seus sistemas de suporte vital são os mais avançados que já testamos. Eles estão tornando a vida no espaço verdadeiramente sustentável."
+                    </p>
+                    <div class="mt-6 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Pronto para <span class="glow">Explorar</span> o Cosmos Conosco?</h2>
+            <p class="text-xl text-gray-300 mb-8">
+                Junte-se à nossa comunidade de entusiastas do espaço, cientistas e visionários. Seja parte da próxima grande aventura da humanidade.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <button class="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-500 rounded-full font-medium hover:from-blue-500 hover:to-blue-400 transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/40">
+                    Inscreva-se para Atualizações
+                </button>
+                <button class="px-8 py-3 border border-blue-500 text-blue-400 rounded-full font-medium hover:bg-blue-900/30 transition-all duration-300">
+                    Carreiras na Cosmos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <span class="text-blue-400 font-medium tracking-wider">CONTATO</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-4 mb-6">Entre em <span class="glow">Contato</span></h2>
+                    <p class="text-gray-400 mb-8">
+                        Tem perguntas sobre nossas missões, tecnologia ou parcerias? Nossa equipe está pronta para ajudar.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="bg-blue-600/20 p-3 rounded-lg mr-4">
+                                <i class="fas fa-map-marker-alt text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-white mb-1">Sede Principal</h4>
+                                <p class="text-gray-400">1234 Cosmos Avenue, Houston, TX 77058, EUA</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-blue-600/20 p-3 rounded-lg mr-4">
+                                <i class="fas fa-phone-alt text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-white mb-1">Telefone</h4>
+                                <p class="text-gray-400">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-blue-600/20 p-3 rounded-lg mr-4">
+                                <i class="fas fa-envelope text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-white mb-1">Email</h4>
+                                <p class="text-gray-400">info@cosmosfrontiers.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="text-lg font-semibold text-white mb-4">Siga-nos</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:text-white transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:text-white transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:text-white transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:text-white transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <form class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700/50">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-gray-400 mb-2">Nome</label>
+                                <input type="text" id="name" class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-400 mb-2">Email</label>
+                                <input type="email" id="email" class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="subject" class="block text-gray-400 mb-2">Assunto</label>
+                            <input type="text" id="subject" class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-400 mb-2">Mensagem</label>
+                            <textarea id="message" rows="5" class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 rounded-lg font-medium hover:from-blue-500 hover:to-blue-400 transition-all duration-300 shadow-lg shadow-blue-500/20">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <a href="#" class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-blue-400 flex items-center justify-center">
+                            <i class="fas fa-rocket text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-200">COSMOS FRONTIERS</span>
+                    </a>
+                    <p class="text-gray-400 mb-4">
+                        Explorando as fronteiras do possível para levar a humanidade às estrelas.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-semibold text-lg mb-4">Missões</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Exploração Lunar</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Colonização de Marte</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Sondas Interestelares</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Mineração de Asteroides</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Telescópios Espaciais</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-semibold text-lg mb-4">Tecnologia</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Propulsão Avançada</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Sistemas de Suporte Vital</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Robótica Espacial</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Comunicações Quânticas</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Terraformação</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-semibold text-lg mb-4">Institucional</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Sobre Nós</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Carreiras</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Imprensa</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Parcerias</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Investidores</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 mb-4 md:mb-0">
+                    © 2023 Cosmos Frontiers. Todos os direitos reservados.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-blue-400 transition">Termos de Serviço</a>
+                    <a href="#" class="text-gray-500 hover:text-blue-400 transition">Política de Privacidade</a>
+                    <a href="#" class="text-gray-500 hover:text-blue-400 transition">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-blue-500 transition hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animate Stats Counter
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('.stats-counter');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounters, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        };
+        
+        // Intersection Observer for Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id === 'stats') {
+                        animateCounters();
+                    }
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        // Observe sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Form Submission
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Here you would typically send the form data to a server
+                alert('Obrigado por sua mensagem! Nossa equipe entrará em contato em breve.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
