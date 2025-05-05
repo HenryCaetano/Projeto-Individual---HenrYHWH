@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: rgb(255, 255, 255);
+  background-color: black;
 }
 
 :root {
@@ -21,19 +21,9 @@ body {
   margin: auto;
 }
 
-.container .logo {
-  height: 300px;
-  width: 520px;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: row;
-  align-items: flex-start;
-  margin-left: -270px;
-}
-
 .header {
   height: var(--tamanho-header);
-  border-bottom: 2px solid #ffffff;
+  border-bottom: 2px solid #32b9cd;
 }
 
 .header .container {
@@ -44,7 +34,7 @@ body {
 
 .header a {
   text-decoration: none;
-  color: #000000;
+  color: #e3b062;
 }
 
 .agora {
@@ -57,11 +47,11 @@ body {
   align-items: center;
   justify-content: space-between;
   list-style: none;
-  color: #000000;
+  color: #e3b062;
 }
 
 .titulo {
-  background-image: url(./imagens/LogoCruz.png);
+  color: #32b9cd;
   width: fit-content;
   font-weight: 500;
 }
@@ -73,13 +63,10 @@ body {
 /* BANNER */
 
 .banner {
-  height: 45vh;
-  color: rgb(255, 255, 255);
-  background-image: url('../Site/imagens/JesusOnWater.png');
-  filter: brightness(50%);
-  background-color: rgb(134, 134, 134);
+  height: var(--tamanho-banner);
+  color: white;
+  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
   background-size: cover;
- 
 }
 
 .banner .container {
@@ -89,18 +76,14 @@ body {
 }
 
 .banner .container p {
-  width: 100%;
+  width: 50%;
   margin: 0;
   padding: 0;
-  font-size: 28px;
-  color: #000000;
-  font-weight: bolder;
- 
+  font-size: 36px;
 }
 
 .banner .container span {
   font-weight: 800;
-  font-size : 77px;
 }
 
 /* MISSÃO VISÃO VALORES */
