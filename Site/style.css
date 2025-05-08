@@ -13,10 +13,6 @@ scroll-behavior: smooth;
 
 }
 
-
-
-
-
 :root {
   --tamanho-header: 80px;
   --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
@@ -32,13 +28,14 @@ scroll-behavior: smooth;
 }
 
 .container .logo {
-  height: 300px;
-  width: 520px;
+  height: 190px;
+  width: 360px;
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
   align-items: flex-start;
-  margin-left: -270px;
+  margin-left: -170px;
+  margin-top: 15px;
 }
 
 .header {
@@ -71,7 +68,6 @@ scroll-behavior: smooth;
 }
 
 .titulo {
-  background-image: url(./imagens/LogoCruz.png);
   width: fit-content;
   font-weight: 500;
 }
