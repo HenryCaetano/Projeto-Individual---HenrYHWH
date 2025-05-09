@@ -100,18 +100,19 @@ scroll-behavior: smooth;
  
 }
 
-.corpo img {
+.corpo .imagemCorpo {
   display: flex;
   flex-direction: column;
   margin-left: -60vh;
   margin-top: 30vh;
   width: 300px;
-  /*transition: transform 0.3s ease;*/
+  transition: transform 0.5s ease;
+  background-size: cover;
 }
 
-/*
-img:hover {
-  transform: scale(1.2); /* aumenta 20% ao passar o mouse */
+
+.imagemCorpo:hover {
+  transform: scale(1.2);} /* aumenta 20% ao passar o mouse */
 
 
 
