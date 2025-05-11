@@ -81,7 +81,7 @@ scroll-behavior: smooth;
 .banner {
   height: 70vh;
   color: rgb(255, 255, 255);
-  background-image: url('../Site/imagens/sodomaegomorra.png');
+  background-image: url('../imagens/sodomaegomorra.png');
   background-color: rgb(255, 255, 255);
   background-size: cover;
   background-attachment: fixed; /* efeito de deixar a imagem estática, mesmo com scroll */

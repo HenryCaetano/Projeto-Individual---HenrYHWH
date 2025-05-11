@@ -84,94 +84,8 @@ body, html {
   color: #ffffff;
 }
 
-.titulo {
-  color: #32b9cd;
-  width: fit-content;
-  font-weight: 500;
-}
-
-.header h1 {
-  margin: 0;
-}
-
-/* BANNER */
-
-.banner {
-  height: var(--tamanho-banner);
-  color: white;
-  background-size: cover;
-}
-
-.banner .container {
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.banner .container p {
-  width: 50%;
-  margin: 0;
-  padding: 0;
-  font-size: 36px;
-}
-
-.banner .container span {
-  font-weight: 800;
-}
-
-/* MISSÃO VISÃO VALORES */
-
-.social {
-  background-color: #e5e5e5;
-  display: flex;
-}
-
-.social .container {
-  justify-content: center;
-}
-
-.box img {
-  width: 170px;
-}
-
-.social .container .boxes {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 30px 0;
-}
-
-.social p {
-  text-align: center;
-}
-
-.box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* FOOTER */
-
-.footer {
-  background-color: #32b9cd;
-  height: 7vh;
-  color: #fff;
-  display: flex;
-  font-size: 15px;
-}
-
-.footer .container {
-  justify-content: center;
-  text-align: center;
-}
-
-.footer .container .version {
-  font-size: 12px;
-}
 
 /* LOGIN */
-
 
 .login {
   height: var(--tamanho-login);
@@ -184,7 +98,7 @@ body, html {
 /*AQUI FICARÁ A IMAGERM MAIOR*/
 .sodoma {
   position: fixed;
-  background-image: url('../Site/imagens/iamthelight.png');
+  background-image: url('../imagens/iamthelight.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -200,8 +114,27 @@ body, html {
   
   margin-top: 30vh;
   background-size: cover;
-  position: relative;
-  filter: drop-shadow(0 -20px 200px rgba(255, 254, 176, 0.514)) drop-shadow(0 -20px 100px rgb(255, 255, 255)) drop-shadow(0 -20px 30px rgb(255, 255, 255)) drop-shadow(0 -20px 30px rgb(255, 255, 255)) ;
+  position: relative;   
+  animation: pulsar 2s infinite alternate linear;
+
+
+}
+
+
+@keyframes pulsar {
+  0%{
+    filter: drop-shadow(0 -20px 200px rgba(255, 254, 176, 0.514)) drop-shadow(0 -20px 100px rgb(255, 255, 255)) drop-shadow(0 -20px 100px rgb(255, 255, 255));
+  }
+
+  50% {
+
+    filter: drop-shadow(0 -20px 100px rgb(255, 255, 255)) drop-shadow(0 -20px 100px rgb(255, 255, 255)) drop-shadow(0 -20px 100px rgb(255, 255, 255)) drop-shadow(0 -20px 100px rgb(255, 255, 255))
+
+  }
+
+  100%{
+    filter: drop-shadow(0 -20px 30px rgb(255, 255, 255)) drop-shadow(0 -20px 30px rgb(255, 255, 255)) drop-shadow(0 -20px 100px rgb(255, 255, 255)) drop-shadow(0 -20px 100px rgb(255, 255, 255)) drop-shadow(0 -20px 100px rgb(255, 255, 255)) ;
+  }
 }
 
 .leftimage img {
@@ -242,6 +175,8 @@ body, html {
   font-style: italic;
   font-size: 30px;
   filter: brightness(1.3);
+  
+
 
 }
 
@@ -250,8 +185,8 @@ margin-top: -30px;
 margin-bottom: 20px;
 width: 35px;
 
-
 }
+
 
 
 .card {
@@ -260,7 +195,7 @@ width: 35px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  color: palevioletred;
+  color: rgb(255, 255, 255);
   flex-direction: column;
   height: fit-content;
   margin-top: 21vh;
@@ -288,24 +223,32 @@ width: 35px;
   width: 80%;
   justify-content: space-around;
   flex-direction: column;
+  
 }
 
 .formulario span {
-  font-size: 15px;
-  font-weight: 800;
+  font-size: 17px;
+  font-weight: 800px;
+  
+}
+
+.redirecionamento {
+  font-weight: 800px;
+
 }
 
 .formulario input {
   text-align: center;
   border-radius: 10px;
   margin: 0;
-  background-color: #e9e9e9;
+  color: #fff;
+  background-color: #e9e9e93b;
 }
 
 .formulario select {
   
   background-color: white;
-  color: gray;
+  color: rgb(255, 255, 255);
   height: 36px;
   text-align: center;
   border-radius: 10px;
@@ -332,6 +275,15 @@ width: 35px;
   height: 50px;
   align-self: center;
   margin-top: 30px;
+  transition-duration: 0.3s;
+}
+
+.botao:hover{
+  
+  background-color: #fff;
+  color: #edba14;
+   filter: drop-shadow(0 0 50px rgba(255, 254, 176, 0.514)) drop-shadow(0 0px 50px rgb(255, 255, 255)) 
+
 }
 
 .loading-div {
@@ -348,24 +300,6 @@ width: 35px;
   display: none
 }
 
-
-
-/* CADASTRO */
-
-
-#botao{
-    background-color: #660101 ;
-    color: #e5e5e5;
-    border: none;
-    margin-top: 5px;
-    border-radius: 10px;
-    padding: 10px 30px;
-}
-#botao:hover{
-    background-color: #880101AD;
-    color: #fff;
-    cursor: pointer;
-}
 
 /* FORMULARIO */
 
@@ -403,7 +337,7 @@ width: 35px;
 
 input {
   margin-bottom: 10px;
-  border: 2px solid #e9e9e9;
+  border: 1px solid #e9e9e97a;
   padding: 10px;
   text-align: center;
   border-radius: 10px;
@@ -492,3 +426,12 @@ input {
   75%  {transform: rotate(-25deg)}
   100% {transform: rotate(25deg)}
 }
+
+@keyframes bell {
+  0%   {transform: rotate(25deg)}
+  25%  {transform: rotate(-25deg)}
+  50%  {transform: rotate(25deg)}
+  75%  {transform: rotate(-25deg)}
+  100% {transform: rotate(25deg)}
+}
+
