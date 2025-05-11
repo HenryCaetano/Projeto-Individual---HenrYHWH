@@ -79,12 +79,13 @@ scroll-behavior: smooth;
 /* BANNER */
 
 .banner {
-  height: 45vh;
+  height: 70vh;
   color: rgb(255, 255, 255);
-  background-image: url('../Site/imagens/JesusOnWater.png');
+  background-image: url('../Site/imagens/sodomaegomorra.png');
   background-color: rgb(255, 255, 255);
   background-size: cover;
- 
+  background-attachment: fixed; /* efeito de deixar a imagem estática, mesmo com scroll */
+  background-position: center;
 }
 
 /* CORPO */
@@ -92,7 +93,7 @@ scroll-behavior: smooth;
   display: flex;
   width: 100%;
   height: 100vh;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   background-color: rgb(255, 255, 255);
   background-size: cover;
   margin: auto;
@@ -100,19 +101,19 @@ scroll-behavior: smooth;
  
 }
 
-.corpo .imagemCorpo {
+.corpo img {
   display: flex;
   flex-direction: column;
-  margin-left: -60vh;
-  margin-top: 30vh;
-  width: 300px;
+  margin-left: -80vh;
+  margin-top: 20vh;
+  width: 450px;
   transition: transform 0.5s ease;
   background-size: cover;
 }
 
 
-.imagemCorpo:hover {
-  transform: scale(1.2);} /* aumenta 20% ao passar o mouse */
+/* img:hover {
+  transform: scale(1.2);} aumenta 20% ao passar o mouse */
 
 
 
@@ -127,7 +128,7 @@ scroll-behavior: smooth;
   margin: 0;
   padding: 0;
   font-size: 28px;
-  color: #000000;
+  color: #ffffff;
   font-weight: bolder;
  
 }
@@ -135,6 +136,7 @@ scroll-behavior: smooth;
 .banner .container span {
   font-weight: 800;
   font-size : 77px;
+  
 }
 
 .banner .container .saibaMais {
@@ -147,7 +149,7 @@ scroll-behavior: smooth;
   padding: 15px;
   padding-right: 60px;
   padding-left: 60px;
-  background-color: dodgerblue;
+  background-color: rgb(253, 165, 0);
   color: #ffffff;
   font-weight: bolder;
   transition: background-color 0.5s, color 0.5s;
@@ -165,19 +167,20 @@ scroll-behavior: smooth;
   padding-right: 60px;
   padding-left: 60px;
   background-color: #ffffff;
-  color: dodgerblue;
+  color: rgb(255, 166, 0);
+  font-weight: bolder;
   transition: background-color 0.5s, color 0.5s;
   
 }
 
 .banner .container .saibaMais:hover {
-  background-color: #32b9cd;
-  color: rgb(255, 255, 255);
+  background-color: #ffffff;
+  color: rgb(255, 166, 0);
   
 }
 
 .banner .container .opinioes:hover {
-  background-color: #32b9cd;
+  background-color: #ffae00;
   color: rgb(255, 255, 255);
   
 }
@@ -246,6 +249,9 @@ scroll-behavior: smooth;
   align-items: center;
   height: 100%;
 }
+
+
+
 
 .card {
   width: 50%;

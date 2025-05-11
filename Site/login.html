@@ -21,7 +21,7 @@
 
     <div class="header">
         <div class="container">
-            <h1 class="titulo">AquaTech</h1>
+            <img class="logo" src="./imagens/logoAtualizada.png">
             <ul class="navbar">
                 <li>
                     <a href="index.html">Inicial</a>
@@ -44,8 +44,21 @@
                 <span id="mensagem_erro"></span>
             </div>
         </div>
+
+        <div class="sodoma">
+        <div class="leftimage"><img src="../Site/imagens/becalm_Atualizado.png"></div>
+        </div>
+        <div class="card_EuSou">
+        <div class="EuSou">
+            <div class="formulario">
+                    <span style="font-size: 16px;"><img class="aaha" src="../Site/imagens/aspas.png"></img>"Eu sou a luz do mundo. Quem me segue, nunca andará em trevas, mas terá a luz da vida".<br><br><br><center><strong style="color: #a57900; font-size: 15px;">João 8:12</strong></center></span>
+            </div>
+        </div>
+        </div>
+        
+        
         <div class="container">
-            <div class="card card-login">
+            <div class="card ">
                 <h2>Olá de volta!</h2>
                 <div class="formulario">
                     <div class="campo">
@@ -56,7 +69,8 @@
                         <span>Senha:</span>
                         <input id="senha_input" type="password" placeholder="******">
                     </div>
-                    <button class="botao" onclick="entrar()">Entrar</button>
+                    <button class="botao" onclick="entrar()">Entrar</button><br><br>
+                    <center><span>Ainda não tem uma conta?   <span><a href="cadastro.html" style="text-decoration: none; color: chocolate;">Cadastre-se!</a></span></span></center>
                 </div>
 
                 <div id="div_aguardar" class="loading-div">
@@ -68,15 +82,23 @@
         </div>
     </div>
 
-    <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-            <span class="version">v1.0.0</span>
-        </div>
-    </div>
-    <!--footer fim-->
 
+    <script>
+
+
+    window.addEventListener('scroll', function () {         // é um ouvidor que fica sempre atento ao evento de rolagem, ou seja,
+                                                            // sempre que a página rolar (scroll), a função será ativada. Resumo: escuta o evento de rolagem "scroll"
+
+    const header = document.querySelector('.header');     // na constante "header", ela busca um elemento HTML. O document.querySelector('.header') busca o primeiro 
+                                                            // elemento com a classe ".header", depois ele guarda esse elemento na variável "header". Ou seja, ele pega o cabeçalho. Resumo: pega o elemento ".header"
+                                                   
+    header.classList.toggle('rolar', window.scrollY > 0); // aqui é onde jaz o efeito: se a página tiver sido rolada (ou seja, se o scrollY for maior que 0), ele adiciona
+                                                            // a classe "rolar", do css; se não, ele remove essa classe - a classe "rolar". Resumo: Adiciona ou remove a classe "rolar"
+    });
+
+
+  </script>
+    
 </body>
 
 </html>
@@ -123,9 +145,9 @@
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.CPF_USUARIO = json.cpf;
+                    sessionStorage.RELIGIAO_USUARIO = json.religiao;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios) /* buscar o que é esse aquarios, e modificar */
 
                     setTimeout(function () {
                         window.location = "./dashboard/cards.html";

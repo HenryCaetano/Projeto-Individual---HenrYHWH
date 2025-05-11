@@ -8,11 +8,11 @@ use Jesus;
 -- criando as tabelas
 create table Usuario(
 idUsuario 				int primary key auto_increment,
-nome 					varchar(40),
-sobrenome 				varchar (40),
+nomeCompleto 			varchar(40),
 religiao 				varchar(40),
 email 					varchar(50),
-senha 					varchar(50) 
+senha 					varchar(50),
+confirmarSenha          varchar(50)
 );
 
 
