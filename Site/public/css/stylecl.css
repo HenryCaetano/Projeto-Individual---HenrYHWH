@@ -123,7 +123,7 @@ body, html {
 
 @keyframes pulsar {
   0%{
-    filter: drop-shadow(0 -20px 200px rgba(255, 254, 176, 0.514)) drop-shadow(0 -20px 100px rgb(255, 255, 255)) drop-shadow(0 -20px 100px rgb(255, 255, 255));
+    filter: drop-shadow(0 -20px 200px rgba(255, 254, 176, 0.514)) drop-shadow(0 -20px 100px rgb(255, 255, 255)) drop-shadow(0 -20px 100px rgb(255, 255, 255)) drop-shadow(0 -20px 100px rgb(255, 255, 255));
   }
 
   50% {

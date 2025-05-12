@@ -13,6 +13,26 @@ scroll-behavior: smooth;
 
 }
 
+.header {
+  height: var(--tamanho-header);
+  background-color: #ffffff00;
+  border-bottom: 1px solid #ffffff00;
+  position: fixed;
+  width: 100%;
+  z-index: 1000; /* fica na frente de outros elementos */
+  transition: 0.3s; /* efeito ao voltar para o topo */
+
+}
+
+/*animação do header para aparecer ao descer a página*/
+.header.rolar {
+
+  height: var(--tamanho-header);
+  background-color:  #ffffff;
+  padding: 10px 0;
+  transition: 0.3s; /* efeito ao sair do topo */
+}
+
 :root {
   --tamanho-header: 80px;
   --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
@@ -38,10 +58,7 @@ scroll-behavior: smooth;
   margin-top: 15px;
 }
 
-.header {
-  height: var(--tamanho-header);
-  border-bottom: 2px solid #ffffff;
-}
+
 
 .header .container {
   justify-content: space-between;
@@ -55,7 +72,7 @@ scroll-behavior: smooth;
 }
 
 .agora {
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .navbar {
@@ -101,7 +118,43 @@ scroll-behavior: smooth;
  
 }
 
-.corpo img {
+.corpo2 {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  color: rgb(255, 255, 255);
+  background-color: rgb(245, 245, 245);
+  background-size: cover;
+  margin: auto;
+  justify-content: center;
+ 
+}
+
+.corpo3 {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+  background-size: cover;
+  margin: auto;
+  justify-content: center;
+ 
+}
+
+.corpo4 {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  color: rgb(255, 255, 255);
+  background-color: rgb(245, 245, 245);
+  background-size: cover;
+  margin: auto;
+  justify-content: center;
+ 
+}
+
+.corpo .imagemCorpo {
   display: flex;
   flex-direction: column;
   margin-left: -80vh;
@@ -220,21 +273,64 @@ scroll-behavior: smooth;
 /* FOOTER */
 
 .footer {
-  background-color: #32b9cd;
-  height: 150px;
-  color: #fff;
-  display: flex;
-  font-size: 15px;
+
+    background-color: rgb(177, 94, 91);
+    height: 150px;
+    color: #fff;
+    display: flex;
+    font-size: 15px;
 }
 
-.footer .container {
-  justify-content: center;
-  text-align: center;
+/* compartimento do rodapé */
+.footer .container{
+
+    justify-content: center;
+    text-align: center;
 }
 
-.footer .container .version {
-  font-size: 12px;
+
+/* itens inseridos no rodapé */
+.rodape .conteudo {
+    max-width: 800px;
+    margin: 0 auto;
 }
+  
+
+/* símbolo de marca registrada ® */
+  .marca-registrada {
+    font-size: 1em;
+    vertical-align: super;
+    margin-left: 2px;
+}
+  
+
+/* classe referente as redes sociais */
+  .redes-sociais {
+    margin-top: 15px;
+}
+  
+
+/* link das redes sociais */
+  .redes-sociais a {
+    margin: 0 10px;
+    display: inline-block; /* ou seja, oculta o link de direcionamento */
+}
+  
+
+/* ícone (imagem) que representa a específica rede social*/
+  .redes-sociais img {
+    width: 40px;
+    height: auto;
+    filter: brightness(0) invert(1); /* deixa branco se o ícone for escuro */
+    transition: transform 0.3s ease;
+  }
+  
+
+  /* define o tamanho em que a imagem crescerá quando o mouse passar por cima */
+  .redes-sociais a:hover img {
+    transform: scale(1.2);
+  }
+
 
 /* LOGIN */
 
