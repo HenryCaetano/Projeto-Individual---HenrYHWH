@@ -1,17 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exemplo - Quiz</title>
-    <link rel="stylesheet" href="stylequiz.css">
+    <link rel="stylesheet" href="css/stylequiz.css">
+    <script src="js/sessao.js"></script>
 </head>
 
 
 <body onload="onloadEsconder()">
+
+    <div class="header">
+        <div class="container">
+            <img class="logo" src="./imagens/logoAtualizada.png">
+            <ul class="navbar">
+                <li class="agora">
+                    <a href="./index.html">Inicial</a>
+                </li>
+                <li>
+                    <a href="./quiz.html">Quiz</a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a href="./login.html">Login</a>
+                </li>
+                <li>
+                    <a href="./cadastro.html">Cadastro</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <div id="pontuacaoEJogo">
-        <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
+        <button id="btnIniciarQuiz" onclick="iniciarQuiz()" class="botaoIniciarJogo">INICIAR QUIZ</button>
+
 
         <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
             <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
@@ -28,6 +53,9 @@
 
         <div id="jogo" class="width-fit-content flex-colunar border-secondary">
 
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
             <div id="infoQuestao" class="padding-8">
                 <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
                     questões.</span>
@@ -43,19 +71,19 @@
 
             <div id="opcoes" class="flex-colunar padding-8">
                 <span>
-                    <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
+                    <input type="radio" id="primeiraOpcao" name="option" class="radio" value="A" />
                     <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
                 </span>
                 <span>
-                    <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
+                    <input type="radio" id="segundaOpcao" name="option" class="radio" value="B" />
                     <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
                 </span>
                 <span>
-                    <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
+                    <input type="radio" id="terceiraOpcao" name="option" class="radio" value="C" />
                     <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
                 </span>
                 <span>
-                    <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
+                    <input type="radio" id="quartaOpcao" name="option" class="radio" value="D" />
                     <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
                 </span>
             </div>
@@ -69,6 +97,8 @@
 
         </div>
     </div>
+
+
 </body>
 
 </html>
@@ -76,30 +106,33 @@
     const listaDeQuestoes = [
 
         {
+            id: 1,
             pergunta: "Qual mês tem 30 dias?",
-            alternativaA: "Janeiro",
-            alternativaB: "Dezembro",
-            alternativaC: "Junho",
-            alternativaD: "Agosto",
-            alternativaCorreta: "alternativaC"
+            A: "Janeiro",
+            B: "Dezembro",
+            C: "Junho",
+            D: "Agosto",
+            Correta: "C"
         },
 
         {
+            id: 2,
             pergunta: "Quantas horas tem em um dia?",
-            alternativaA: "30 horas",
-            alternativaB: "38 horas",
-            alternativaC: "48 horas",
-            alternativaD: "24 horas",
-            alternativaCorreta: "alternativaD"
+            A: "30 horas",
+            B: "38 horas",
+            C: "48 horas",
+            D: "24 horas",
+            Correta: "D"
         },
 
         {
+            id: 3,
             pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
-            alternativaCorreta: "alternativaD"
+            A: "Dez",
+            B: "Doze",
+            C: "Oito",
+            D: "Onze",
+            Correta: "D"
         }
 
     ]
@@ -116,6 +149,13 @@
     function onloadEsconder() {
         document.getElementById('pontuacao').style.display = "none"
         document.getElementById('jogo').style.display = "none"
+    }
+
+    // função da barra de progresso
+    function updateProgressBar() {
+        const progressBar = document.getElementById('progressBar');
+        const progress = ((numeroDaQuestaoAtual) / quantidadeDeQuestoes) * 100;
+        progressBar.style.width = progress + '%';
     }
 
     function iniciarQuiz() {
@@ -141,10 +181,12 @@
         console.log(questaoAtual)
         document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
         document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
-        document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
-        document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
-        document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
-        document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
+        document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.A;
+        document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.B;
+        document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.C;
+        document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.D;
+
+        updateProgressBar(); //chama a função para aumentar a barra de progresso
     }
 
     function submeter() {
@@ -204,38 +246,62 @@
 
     function checarResposta() {
         const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
-        const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
+        const respostaQuestaoAtual = questaoAtual.Correta; // qual é a resposta correta da questão atual
+        const options = document.getElementsByName("option");
+        const idUsuario = Number(sessionStorage.ID_USUARIO);
 
-        const options = document.getElementsByName("option"); // recupera alternativas no html
+        
 
-        let alternativaCorreta = null // variável para armazenar a alternativa correta
+        let respostaEscolhida = null;
 
         options.forEach((option) => {
-            if (option.value === respostaQuestaoAtual) {
-                console.log("alternativaCorreta está no componente: " + alternativaCorreta)
-                alternativaCorreta = option.labels[0].id
-            }
-        })
+            if (option.checked) {
+                respostaEscolhida = option.value;
 
-        // verifica se resposta assinalada é correta
-        options.forEach((option) => {
-            if (option.checked === true && option.value === respostaQuestaoAtual) {
-                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
-                pontuacaoFinal++
-                certas++
-                document.getElementById("spanCertas").innerHTML = certas
-                numeroDaQuestaoAtual++
-            } else if (option.checked && option.value !== respostaQuestaoAtual) {
-                const wrongLabelId = option.labels[0].id
+                if (option.value === respostaQuestaoAtual) {
+                    document.getElementById(option.labels[0].id).classList.add("text-success-with-bg");
+                    pontuacaoFinal++;
+                    certas++;
+                    document.getElementById("spanCertas").innerHTML = certas;
+                } else {
+                    const wrongLabelId = option.labels[0].id;
+                    const corretaLabelId = [...options].find(opt => opt.value === respostaQuestaoAtual).labels[0].id;
 
-                document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
-                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
-                tentativaIncorreta++
-                erradas++
-                document.getElementById("spanErradas").innerHTML = erradas
-                numeroDaQuestaoAtual++
+                    document.getElementById(wrongLabelId).classList.add("text-danger-with-bg");
+                    document.getElementById(corretaLabelId).classList.add("text-success-with-bg");
+                    tentativaIncorreta++;
+                    erradas++;
+                    document.getElementById("spanErradas").innerHTML = erradas;
+                }
+
+                // Apenas uma alternativa pode ser selecionada, então já pode parar aqui
+
+                console.log("Enviando resposta:", {
+                    idUsuario: sessionStorage.ID_USUARIO,
+                    idQuestao: questaoAtual.id,
+                    respostaDada: respostaEscolhida,
+                    respostaCorreta: respostaEscolhida === respostaQuestaoAtual
+                });
+
+                // Enviar a resposta para o back-end
+                fetch("/respostas/registrar", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        idUsuario: idUsuario,
+                        idQuestao: questaoAtual.id,
+                        respostaDada: respostaEscolhida,
+                        respostaCorreta: respostaEscolhida === respostaQuestaoAtual
+                    })
+                }).then(() => {
+                    numeroDaQuestaoAtual++;
+                });
+
+                return;
             }
-        })
+        });
+
+
     }
 
     function limparCoresBackgroundOpcoes() {
@@ -271,14 +337,14 @@
             classComCoresParaMensagemFinal = "text-success-with-bg"
         }
 
-        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos)*100) + "% das questões."
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
 
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal) 
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
 
-        document.getElementById('jogo').classList.add("text-new-gray") 
+        document.getElementById('jogo').classList.add("text-new-gray")
 
         btnProx.disabled = true
         btnSubmeter.disabled = true

@@ -33,6 +33,22 @@ scroll-behavior: smooth;
   transition: 0.3s; /* efeito ao sair do topo */
 }
 
+.header.rolar a{
+
+  height: var(--tamanho-header);
+  color: #000000;
+  padding: 10px 0;
+  transition: 0.3s; /* efeito ao sair do topo */
+}
+
+.header.rolar .navbar{
+
+  height: var(--tamanho-header);
+  color: #000000;
+  padding: 10px 0;
+  transition: 0.3s; /* efeito ao sair do topo */
+}
+
 :root {
   --tamanho-header: 80px;
   --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
@@ -68,7 +84,7 @@ scroll-behavior: smooth;
 
 .header a {
   text-decoration: none;
-  color: #000000;
+  color: #ffffff;
 }
 
 .agora {
@@ -81,7 +97,7 @@ scroll-behavior: smooth;
   align-items: center;
   justify-content: space-between;
   list-style: none;
-  color: #000000;
+  color: #ffffff;
 }
 
 .titulo {

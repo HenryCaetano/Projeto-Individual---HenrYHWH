@@ -1,6 +1,83 @@
 /* Não usar pure white or pure black: https://uxplanet.org/basicdesign-never-use-pure-black-in-typography-36138a3327a6 */
 /* The 4-point grid system: https://medium.com/@sainzkike/controlling-spacing-in-design-systems-multiple-spacing-9bf1afec87f */
 
+.header {
+  height: var(--tamanho-header);
+  background-color: #ffffff;
+  border-bottom: 1px solid #ffffff00;
+  position: fixed;
+  width: 100%;
+  z-index: 1000; /* fica na frente de outros elementos */
+  color: #000000;
+  padding: 10px 0;
+  margin-top: -9vh;
+
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+
+.corpo {
+  display: flex;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  margin: auto;
+  justify-content: center;
+ 
+}
+
+.container .logo {
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-left: -170px;
+  height: 190px;
+  width: 360px;
+  margin-left: -170px;
+  margin-top: 15px;
+
+}
+
+
+.header .container {
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.header a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.agora {
+  font-weight: 700;
+}
+
+.navbar {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  color: #000000;
+}
+
+.titulo {
+  width: fit-content;
+  font-weight: 500;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+
+
 :root {
     --primary-brand-color: #ED145B;
     --secondary-brand-color: #0762C8;
@@ -16,17 +93,56 @@
     --new-gray: #CCCCCC;
     --new-black: #212427;
     --new-white: #E8E8E8;
+    --tamanho-header: 80px;
+    
+    
 }
 
 body {
     color: var(--new-black);
     background-color: var(--new-white);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
+#pontuacaoEJogo{
+    margin-top: var(--tamanho-header); /* ou 80px */
+    padding-top: 16px; /* espaço extra opcional */
+
+}
+
+.progress-container {
+  height: 8px;
+  background-color: #f3f4f6;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #d97706;
+  transition: width 0.4s ease;
+}
+
+
 button {
+    
     font-family: monospace;
     font-weight: bold;
+    width: 10vh;
+    justify-content: center;
+    margin-left: 95vh;
+    margin-top: 5vh
+}
+
+.botaoIniciarJogo{
+
+margin-left: 95vh;
+margin-top: 45vh
+
 }
 
 .flex-colunar {
@@ -34,8 +150,9 @@ button {
     flex-direction: column;
 }
 
-.width-fit-content {
-    width: fit-content;
+.width-fit-content .joguinho{
+    width: 100%;
+    height: auto;
 }
 
 .border-primary {

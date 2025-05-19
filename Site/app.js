@@ -15,11 +15,12 @@ var HOST_APP = process.env.APP_HOST;
 
 var app = express();
 
-/* pelo jeito, aqui pega das tabelas do mysql */
+/* pelo jeito, aqui são definidas as rotas primárias */
 
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var avisosRouter = require("./src/routes/avisos");
+var respostasRouter = require("./src/routes/respostas");
 
 
 app.use(express.json());
@@ -31,7 +32,7 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/avisos", avisosRouter);
-
+app.use("/respostas", respostasRouter);
 
 
 

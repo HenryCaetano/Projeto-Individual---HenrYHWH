@@ -4,16 +4,20 @@ function validarSessao() {
     var nome = sessionStorage.NOME_USUARIO;
     var cpf = sessionStorage.CPF_USUARIO;
     var religiao = sessionStorage.RELIGIAO_USUARIO;
-    
 
-    var b_usuario = document.getElementById("b_usuario");
-    var c_usuario = document.getElementById("c_usuario");
-    var d_usuario = document.getElementById("d_usuario");
+    // só atualiza elementos se eles existirem na página
+        var b_usuario = document.getElementById("b_usuario");
+        var c_usuario = document.getElementById("c_usuario");
+        var d_usuario = document.getElementById("d_usuario");
 
     if (email != null && nome != null) {
-        b_usuario.innerHTML = nome;
-        c_usuario.innerHTML = cpf;
-        d_usuario.innerHTML = religiao;
+
+        //validando os dados existentes, para que quando o usuário for fazer o quiz não dê null
+        if(b_usuario) b_usuario.innerHTML = nome;
+        if(c_usuario) c_usuario.innerHTML = cpf;
+        if(d_usuario) d_usuario.innerHTML = religiao;
+        
+
     } else {
         window.location = "../login.html";
     }
