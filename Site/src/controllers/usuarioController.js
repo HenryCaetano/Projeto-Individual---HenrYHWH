@@ -84,8 +84,29 @@ function cadastrar(req, res) {
     }
 }
 
+
+function listarAcertos(req, res) {
+    usuarioModel.obterAcertosPorUsuario()
+        .then(result => res.json(result))
+        .catch(erro => {
+            console.error("Erro ao listar acertos por usuário:", erro.sqlMessage || erro);
+            res.status(500).json(erro);
+        });
+}
+
+function listarReligioes(req, res) {
+    usuarioModel.obterReligioes()
+        .then(result => res.json(result))
+        .catch(erro => {
+            console.error("Erro ao listar religiões:", erro.sqlMessage || erro);
+            res.status(500).json(erro);
+        });
+}
+
 module.exports = {
     autenticar,
     cadastrar,
-    listar
+    listar,
+    listarAcertos,
+    listarReligioes
 };

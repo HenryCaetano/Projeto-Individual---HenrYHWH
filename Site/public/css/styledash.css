@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
 
@@ -17,12 +17,15 @@ html, body {
     padding: 0;
     display: flex;
     flex-direction: column;
+    background-color: #d1c6c6;
 }
 
 
 .corpo {
 
-    flex: 1
+    margin-top: 10vh;
+    flex: 1;
+    background-color: #d1c6c6;
 
 }
 
@@ -50,22 +53,23 @@ html, body {
 body{
     margin: 0;
     padding: 0;
-    font-family: 'Barlow', sans-serif;
-    background-color: rgb(255, 255, 255);
+    font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #d1c6c6;
 }
 
 
 
 /* HEADER */
 
-.header{
-    
-    background-color: #660101F2 ;
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    padding: 20px;
-    
+.header {
+  height: var(--tamanho-header);
+  background-color: #ffffff00;
+  border-bottom: 1px solid #ffffff00;
+  position: fixed;
+  width: 100%;
+  z-index: 1000; /* fica na frente de outros elementos */
+  transition: 0.3s; /* efeito ao voltar para o topo */
+
 }
 
 .container{
@@ -74,164 +78,66 @@ body{
     margin: auto;
 }
 
-.header .container{
-    margin: 0;
-    width: 90%;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
+.container .logo {
+  height: 190px;
+  width: 360px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-left: -170px;
+  margin-top: 15px; 
 }
 
-.navbar{
-    width: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    list-style: none;
-    color: #ffffff;
+.header .container {
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  color: #000000;
 }
 
 .header a{
     text-decoration: none;
-    color: #ffffff;
+    color: #000000;
 }
 
 .agora{
     font-weight: 700;
 }
 
-/* FOOTER */
-.footer {
+.header.rolar {
 
-    background-color: rgb(177, 94, 91);
-    height: var(--tamanho-footer);
-    color: #fff;
-    display: flex;
-    font-size: 15px;
+  height: var(--tamanho-header);
+  background-color:  #ffffff;
+  padding: 10px 0;
+  transition: 0.3s; /* efeito ao sair do topo */
 }
 
-.footer .container{
+.header.rolar a{
 
-    justify-content: center;
-    text-align: center;
+  height: var(--tamanho-header);
+  color: #000000;
+  padding: 10px 0;
+  transition: 0.3s; /* efeito ao sair do topo */
 }
 
-.rodape .conteudo {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .marca-registrada {
-    font-size: 0.8em;
-    vertical-align: super;
-    margin-left: 2px;
-  }
-  
-  .redes-sociais {
-    margin-top: 15px;
-  }
-  
-  .redes-sociais a {
-    margin: 0 10px;
-    display: inline-block;
-  }
-  
-  .redes-sociais img {
-    width: 24px;
-    height: 24px;
-    filter: brightness(0) invert(1); /* deixa branco se o ícone for escuro */
-    transition: transform 0.3s ease;
-  }
-  
-  .redes-sociais a:hover img {
-    transform: scale(1.2);
-  }
+.header.rolar .navbar{
 
-.login .leftimage{
-    flex: 1;
-    background-image: url('../Site/imagens/JesusShine2.png');
-    background-size: cover;
-    background-position: center
-
+  height: var(--tamanho-header);
+  color: #000000;
+  padding: 10px 0;
+  transition: 0.3s; /* efeito ao sair do topo */
 }
 
-/* CADASTRO */
-.login .container{
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    text-align: center;
-}
 
-.card-cadastro{
-    flex: 1;
-    width: 600px;
-    margin: 88px;
-    background-color: #d1c6c6;
-    height: fit-content;
-    border-radius: 10px;
-    color: #660101;
-    padding: 10px 40px;
-    text-align: center;
-    border: 2px solid #660101;
-    
-}
-
-.campo{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align: left;
-}
-
-.campo input{
-    border: solid #660101;
-    width: 100px;
-    border-radius: 10px;
-    text-align: center;
-    padding: 10px 250px;
-}
-
-#botao{
-    background-color: #660101 ;
-    color: #e5e5e5;
-    border: none;
-    margin-top: 5px;
-    border-radius: 10px;
-    padding: 10px 30px;
-}
-#botao:hover{
-    background-color: #880101AD;
-    color: #fff;
-    cursor: pointer;
-}
-
-/* LOGIN */
-
-.card-login{
-    width: 600px;
-    margin: 212px ;
-    background-color: #d1c6c6;
-    height: fit-content;
-    border-radius: 10px;
-    text-align: center;
-    color: #660101;
-    padding: 10px 40px;
-    border: 2px solid #660101;
-}
-
-.card-simulador{
-    width: 600px;
-    margin: 100px ;
-    background-color: #d1c6c6;
-    height: fit-content;
-    border-radius: 10px;
-    text-align: center;
-    color: #660101;
-    padding: 10px 40px;
-    border: 2px solid #660101;
-}
 /*DASHBOARD*/
 .dashboard {
     background-color: #d1c6c6;
@@ -284,6 +190,14 @@ body{
     flex: 1 1 45%;
     max-width: 45%;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.graph {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1e1e2f;
+    border-radius: 10px;
 }
 
 /*FORMULARIO DO SIMULADOR*/

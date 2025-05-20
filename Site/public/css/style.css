@@ -92,7 +92,7 @@ scroll-behavior: smooth;
 }
 
 .navbar {
-  width: 300px;
+  width: 400px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -222,6 +222,7 @@ scroll-behavior: smooth;
   color: #ffffff;
   font-weight: bolder;
   transition: background-color 0.5s, color 0.5s;
+  transition: 0.3s;
 
 }
 
@@ -239,19 +240,21 @@ scroll-behavior: smooth;
   color: rgb(255, 166, 0);
   font-weight: bolder;
   transition: background-color 0.5s, color 0.5s;
+  transition: 0.3s;
   
 }
 
 .banner .container .saibaMais:hover {
   background-color: #ffffff;
   color: rgb(255, 166, 0);
+  transform: scale(1.1);
   
 }
 
 .banner .container .opinioes:hover {
   background-color: #ffae00;
   color: rgb(255, 255, 255);
-  
+  transform: scale(1.1);
 }
 
 /* MISSÃO VISÃO VALORES */

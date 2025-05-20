@@ -9,7 +9,7 @@ function registrarResposta(idUsuario, idQuestao, respostaDada, respostaCorreta) 
         VALUES (${idUsuario}, ${idQuestao}, '${respostaDada}', ${respostaCerta});
     `;
 
-    console.log("SQL gerado:", query); // Adicione isso temporariamente para ver o SQL
+    console.log("SQL gerado:", query); // vendo se os dados estão sendo plotados no mysql
     return database.executar(query);
 }
 
@@ -20,6 +20,8 @@ function obterEstatisticasQuestoes() {
         group by res.fkquestao_respostas;
     `;
     return database.executar(query);
+
+    
 }
 
 module.exports = { registrarResposta , obterEstatisticasQuestoes};

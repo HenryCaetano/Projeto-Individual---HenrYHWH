@@ -1,34 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 
 <head>
+    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo - Quiz</title>
-    <link rel="stylesheet" href="css/stylequiz.css">
-    <script src="js/sessao.js"></script>
+    <title>AquaTech | Tempo Real</title>
+
+
+    
+    <link rel="stylesheet" href="./css/stylequiz.css" />
+
+    <script src="../js/sessao.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 
-<body onload="onloadEsconder()">
+<body onload="onloadEsconder(), validarSessao()">
 
     <div class="header">
         <div class="container">
             <img class="logo" src="./imagens/logoAtualizada.png">
             <ul class="navbar">
-                <li class="agora">
-                    <a href="./index.html">Inicial</a>
-                </li>
                 <li>
-                    <a href="./quiz.html">Quiz</a>
+                    <a href="index.html">Inicial</a>
+                </li>
+                <li class="agora">
+                    <a href="quiz.html">Quiz</a>
                 </li>
                 <li>|</li>
                 <li>
-                    <a href="./login.html">Login</a>
-                </li>
-                <li>
-                    <a href="./cadastro.html">Cadastro</a>
+                    <a href="./dashboardi.html">Dashboard</a>
                 </li>
             </ul>
         </div>
@@ -248,7 +254,7 @@
         const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
         const respostaQuestaoAtual = questaoAtual.Correta; // qual é a resposta correta da questão atual
         const options = document.getElementsByName("option");
-        const idUsuario = Number(sessionStorage.ID_USUARIO);
+        const idUsuario = sessionStorage.ID_USUARIO;
 
         
 
@@ -353,3 +359,5 @@
 
     }
 </script>
+
+</html>

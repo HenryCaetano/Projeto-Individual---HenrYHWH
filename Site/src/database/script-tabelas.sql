@@ -5,7 +5,7 @@
 /*
 comandos para mysql server
 */
-drop database Jesus;
+-- drop database Jesus;
 CREATE DATABASE Jesus;
 
 USE Jesus;
@@ -59,15 +59,25 @@ create table respostas_usuario (
 );
 
 
+INSERT INTO quiz (titulo) VALUES ('Quiz de Exemplo');
+
+INSERT INTO questao (enunciado, alternativa_a, alternativa_b, alternativa_c, alternativa_d, alternativa_correta, fkquiz_questao)
+VALUES 
+('Qual mês tem 30 dias?', 'Janeiro', 'Dezembro', 'Junho', 'Agosto', 'C', 1),
+('Quantas horas tem em um dia?', '30 horas', '38 horas', '48 horas', '24 horas', 'D', 1),
+('Qual destes números é ímpar?', 'Dez', 'Doze', 'Oito', 'Onze', 'D', 1);
+
+
+
 -- leitura da dashboard para gráfico de barras quanto as questões
 select res.fkquestao_respostas, count(*) as "Total Realizado", sum(res.resposta_correta) as "Total de Acerto"
 from respostas_usuario  res
 group by res.fkquestao_respostas;
 
 -- leitura da dashboard para gráfico de nuvem de palavras
-select u.religiao as "Religião do Usuário", count(*) as "Quantidade da Religião" 
-from usuario u
-group by u.religiao;
+SELECT religiao, COUNT(*) AS quantidade
+        FROM usuario
+        GROUP BY religiao;
 
 -- selecionar o cadastro
 select * from usuario;
@@ -79,16 +89,13 @@ select * from quiz;
 select * from questao;
 select * from respostas_usuario;
 
+  SELECT u.nome, COUNT(*) AS acertos
+        FROM respostas_usuario ru
+        JOIN usuario u ON ru.fkusuario_respostas = u.id
+        WHERE ru.resposta_correta = 1
+        GROUP BY u.nome
+        ORDER BY acertos DESC
+        LIMIT 5;
 
-
-
-INSERT INTO quiz (titulo) VALUES ('Quiz de Exemplo');
-
-INSERT INTO questao (enunciado, alternativa_a, alternativa_b, alternativa_c, alternativa_d, alternativa_correta, fkquiz_questao)
-VALUES 
-('Qual mês tem 30 dias?', 'Janeiro', 'Dezembro', 'Junho', 'Agosto', 'C', 1),
-('Quantas horas tem em um dia?', '30 horas', '38 horas', '48 horas', '24 horas', 'D', 1),
-('Qual destes números é ímpar?', 'Dez', 'Doze', 'Oito', 'Onze', 'D', 1);
-
-
+-- truncate table respostas_usuario;
 

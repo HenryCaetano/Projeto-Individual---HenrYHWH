@@ -40,10 +40,35 @@ function cadastrar(nome, religiao, email, senha) {
     return database.executar(instrucaoSql);
 }
 
+
+function obterAcertosPorUsuario() {
+    var query = `
+        SELECT u.nome, COUNT(*) AS acertos
+        FROM respostas_usuario ru
+        JOIN usuario u ON ru.fkusuario_respostas = u.id
+        WHERE ru.resposta_correta = 1
+        GROUP BY u.nome
+        ORDER BY acertos DESC
+        LIMIT 5;
+    `;
+    return database.executar(query);
+}
+
+function obterReligioes() {
+    var query = `
+        SELECT religiao, COUNT(*) AS quantidade
+        FROM usuario
+        GROUP BY religiao;
+    `;
+    return database.executar(query);
+}
+
 module.exports = {
     autenticar,
     cadastrar,
     verificarExistente,
-    listar
+    listar,
+    obterAcertosPorUsuario,
+    obterReligioes
     
 };
