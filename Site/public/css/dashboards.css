@@ -120,7 +120,7 @@ body {
   position: relative;
   top: 0;
   left: 20%;
-  background-color: #161618;
+  background-color: #e5e5ec;
   height: 100vh;
   overflow: auto;
 }
@@ -348,8 +348,9 @@ canvas {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border-right: 3px solid #32b9cd;
-  background-color: #212124;
+  border-right: 2px solid #cdb132;
+  background-color: #161618;
+  
 }
 
 .dash-right {

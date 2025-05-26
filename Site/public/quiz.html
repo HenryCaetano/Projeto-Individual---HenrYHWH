@@ -40,9 +40,18 @@
         </div>
     </div>
 
-    <div id="pontuacaoEJogo">
-        <button id="btnIniciarQuiz" onclick="iniciarQuiz()" class="botaoIniciarJogo">INICIAR QUIZ</button>
+    
 
+    <div id="pontuacaoEJogo">
+        
+        <div class="antesDeComecar">
+            <button id="btnIniciarQuiz" onclick="iniciarQuiz()" class="botaoIniciarJogo">INICIAR QUIZ</button>  
+            
+
+
+
+
+        
 
         <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
             <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
@@ -65,6 +74,10 @@
             <div id="infoQuestao" class="padding-8">
                 <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
                     questões.</span>
+            </div>
+
+            <div>
+                <img class="imagemQuestao" src="./imagens/sodomaegomorra.png" style="height: 100px; width: auto; padding: 10px;">
             </div>
 
             <div id="perguntaDaQuestaoAtual" class="padding-8">
@@ -95,13 +108,16 @@
             </div>
 
             <div id="botoes" class="flex-colunar padding-8">
-                <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
-                <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
+                <button onclick="submeter()" id="btnSubmeter" class="submeter">Submeter resposta</button>
+                <button onclick="avancar()" id="btnProx" disabled class="avancar">Avançar para próxima questão</button>
                 <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
-                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled class="tentarNovamente">Tentar novamente</button>
             </div>
 
+            
+
         </div>
+        
     </div>
 
 
@@ -113,32 +129,102 @@
 
         {
             id: 1,
-            pergunta: "Qual mês tem 30 dias?",
-            A: "Janeiro",
-            B: "Dezembro",
-            C: "Junho",
-            D: "Agosto",
-            Correta: "C"
+            pergunta: "Qual é a fonte não-cristã mais antiga que menciona Jesus?",
+            A: "Flávio Josefo (Antiguidades Judaicas)",
+            B: "Tácito (Anais)",
+            C: "Plínio, o Jovem (Cartas)",
+            D: "Suetônio (Vidas dos Césares)",
+            Correta: "B"
         },
 
         {
             id: 2,
-            pergunta: "Quantas horas tem em um dia?",
-            A: "30 horas",
-            B: "38 horas",
-            C: "48 horas",
-            D: "24 horas",
-            Correta: "D"
+            pergunta: "Qual destes historiadores judeus do século I menciona Jesus?",
+            A: "Fílon de Alexandria",
+            B: "Justo de Tiberíades",
+            C: "Flávio Josefo",
+            D: "Nenhum dos acima",
+            Correta: "C"
         },
 
         {
             id: 3,
-            pergunta: "Qual destes números é ímpar?",
-            A: "Dez",
-            B: "Doze",
-            C: "Oito",
-            D: "Onze",
+            pergunta: "Qual destes é um argumento usado por estudiosos para afirmar a historicidade de Jesus?",
+            A: "Existência de relatos de milagres",
+            B: "Múltiplas fontes independentes",
+            C: "Artefatos arqueológicos com seu nome",
+            D: "Registros oficiais romanos detalhados",
+            Correta: "B"
+        },
+
+        {
+            id: 4,
+            pergunta: "Qual destes eventos da vida de Jesus é considerado historicamente mais provável pela maioria dos estudiosos?",
+            A: "Nascimento virginal",
+            B: "Batismo por João Batista",
+            C: "Transfiguração",
+            D: "Ressurreição física",
+            Correta: "B"
+        },
+
+        {
+            id: 5,
+            pergunta: "O que o 'critério da dissimilaridade' sugere sobre Jesus?",
+            A: "Que ele era diferente de outros líderes religiosos",
+            B: "Que elementos que não podem ser derivados do judaísmo ou do cristianismo primitivo provavelmente são históricos",
+            C: "Que os evangelhos são completamente diferentes entre s",
+            D: "Que não há similaridade entre as fontes cristãs e não-cristãs",
+            Correta: "B"
+        },
+
+        {
+            id: 6,
+            pergunta: "Qual destes títulos atribuídos a Jesus é considerado pelo consenso acadêmico como provavelmente usado por ele mesmo?",
+            A: "Cristo (Messias)",
+            B: "Filho de Deus",
+            C: "Filho do Homem",
+            D: "Senhor (Kyrios)",
+            Correta: "C"
+        },
+
+        {
+            id: 7,
+            pergunta: "Qual é a posição do consenso acadêmico sobre a existência histórica de Jesus?",
+            A: "Jesus é uma figura completamente mítica",
+            B: "Há dúvidas significativas sobre sua existência",
+            C: "Ele existiu, mas quase nada pode ser conhecido sobre ele",
+            D: "Ele existiu como um pregador judeu do século I",
             Correta: "D"
+        },
+
+        {
+            id: 8,
+            pergunta: "Qual destes elementos da narrativa da paixão é considerado historicamente mais confiável?",
+            A: "A última ceia como uma refeição pascal",
+            B: "O julgamento perante o Sinédrio",
+            C: "A libertação de Barrabás",
+            D: "As palavras exatas de Jesus na cruz",
+            Correta: "C"
+        },
+
+        {
+            id: 9,
+            pergunta: "Qual destas características do Jesus histórico é mais amplamente aceita?",
+            A: "Ele era um carpinteiro de Nazaré",
+            B: "Ele falava fluentemente grego",
+            C: "Ele era um zelota revolucionário",
+            D: "Ele era essênio ou tinha ligações com Qumran",
+            Correta: "A"
+        },
+
+        {
+            id: 10,
+            pergunta: "Qual destes eventos é considerado o mais seguro historicamente?",
+            A: "A crucificação sob Pôncio Pilatos",
+            B: "Os detalhes do nascimento em Belém",
+            C: "A tentação no deserto",
+            D: "A ascensão aos céus",
+            Correta: "A"
         }
 
     ]

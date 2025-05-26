@@ -10,7 +10,7 @@
 
   <script src="./js/sessao.js"></script>
 
-  <link rel="stylesheet" href="./css/stylecl.css"/>
+  <link rel="stylesheet" href="./css/stylecl.css" />
   <link rel="icon" href="./assets/icon/favicon2.ico" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
@@ -46,15 +46,19 @@
     </div>
 
     <div class="sodoma">
-    <div class="leftimage"><img src="./imagens/becalm_Atualizado.png"></div>
+      <div class="leftimage"><img src="./imagens/becalm_Atualizado.png"></div>
     </div>
     <div class="card_EuSou">
-        <div class="EuSou">
-            <div class="formulario">
-                    <span style="font-size: 16px;"><img class="aaha" src="./imagens/aspas.png"></img><strong style="font-weight: 400px;">"Eu sou o caminho, a verdade e a vida. Ninguém vem ao Pai, a não ser por Mim".</strong><br><br><br><center><strong style="color: #a57900; font-size: 15px;">João 14:6</strong></center></span>
-            </div>
+      <div class="EuSou">
+        <div class="formulario">
+          <span style="font-size: 16px;"><img class="aaha" src="./imagens/aspas.png"></img><strong
+              style="font-weight: 400px;">"Eu sou o caminho, a verdade e a vida. Ninguém vem ao Pai, a não ser por
+              Mim".</strong><br><br><br>
+            <center><strong style="color: #a57900; font-size: 15px;">João 14:6</strong></center>
+          </span>
         </div>
       </div>
+    </div>
 
     <div class="container">
       <div class="card card-login">
@@ -64,14 +68,10 @@
                          Para inserir mais um campo, copie uma das inputs abaixo.
                          Assim que inserir vá para o script abaixo.
                      -->
-          
+
           <div class="campo">
             <span>Nome:</span>
-            <input id="nomeCompleto_input" type="text" placeholder="Informe seu nome completo"/>
-          </div>
-          <div class="campo">
-            <span>Religião:</span>
-            <input id="religiao_input" type="text" placeholder="Informe a sua religião" />
+            <input id="nomeCompleto_input" type="text" placeholder="Informe seu nome completo" />
           </div>
           <div class="campo">
             <span>E-mail:</span>
@@ -85,11 +85,169 @@
             <span>Confirmação da Senha:</span>
             <input id="confirmacao_senha_input" type="password" placeholder="*******" />
           </div>
+          <div class="campo">
+            <select name="religião" id="religiao">
+              <option value="#">Selecione sua religião</option>
+              <option value="Adventismo">Adventismo</option>
+              <option value="Africanismo">Africanismo</option>
+              <option value="Agnosticismo">Agnosticismo</option>
+              <option value="Ahmadiyya">Ahmadiyya</option>
+              <option value="Aladura">Aladura</option>
+              <option value="Albanismo">Albanismo</option>
+              <option value="Aliança Cristã Missionária">Aliança Cristã Missionária</option>
+              <option value="Alquimia">Alquimia</option>
+              <option value="Amish">Amish</option>
+              <option value="Animismo">Animismo</option>
+              <option value="Antroposofia">Antroposofia</option>
+              <option value="Arianismo">Arianismo</option>
+              <option value="Asatrú">Asatrú</option>
+              <option value="Assembleia de Deus">Assembleia de Deus</option>
+              <option value="Ateísmo">Ateísmo</option>
+              <option value="Ayyavazhi">Ayyavazhi</option>
+              <option value="Baha'í">Baha'í</option>
+              <option value="Baptista">Baptista</option>
+              <option value="Bon">Bon</option>
+              <option value="Brahnmakumaris">Brahnmakumaris</option>
+              <option value="Bruxaria">Bruxaria</option>
+              <option value="Budismo">Budismo</option>
+              <option value="Cabala">Cabala</option>
+              <option value="Candomblé">Candomblé</option>
+              <option value="Catolicismo">Catolicismo</option>
+              <option value="Cientologia">Cientologia</option>
+              <option value="Confucionismo">Confucionismo</option>
+              <option value="Conselho Espírita Cristão">Conselho Espírita Cristão</option>
+              <option value="Coptismo">Coptismo</option>
+              <option value="Cristadelfianismo">Cristadelfianismo</option>
+              <option value="Cristianismo">Cristianismo</option>
+              <option value="Cristianismo Ortodoxo">Cristianismo Ortodoxo</option>
+              <option value="Cristianismo Reformado">Cristianismo Reformado</option>
+              <option value="Cristo Científico">Cristo Científico</option>
+              <option value="Druida">Druida</option>
+              <option value="Eckankar">Eckankar</option>
+              <option value="Episcopal">Episcopal</option>
+              <option value="Espiritismo">Espiritismo</option>
+              <option value="Essênios">Essênios</option>
+              <option value="Falun Gong">Falun Gong</option>
+              <option value="Fé Bahá'í">Fé Bahá'í</option>
+              <option value="Fideísmo">Fideísmo</option>
+              <option value="Foursquare">Foursquare</option>
+              <option value="Gnosticismo">Gnosticismo</option>
+              <option value="Hare Krishna">Hare Krishna</option>
+              <option value="Hinduísmo">Hinduísmo</option>
+              <option value="Ho'oponopono">Ho'oponopono</option>
+              <option value="Huguenotes">Huguenotes</option>
+              <option value="Humanismo Secular">Humanismo Secular</option>
+              <option value="Igreja Adventista do Sétimo Dia">Igreja Adventista do Sétimo Dia</option>
+              <option value="Igreja Batista">Igreja Batista</option>
+              <option value="Igreja Católica">Igreja Católica</option>
+              <option value="Igreja Cristã Maranata">Igreja Cristã Maranata</option>
+              <option value="Igreja de Cristo">Igreja de Cristo</option>
+              <option value="Igreja de Deus">Igreja de Deus</option>
+              <option value="Igreja de Jesus Cristo dos Santos dos Últimos Dias">Igreja de Jesus Cristo dos Santos dos Últimos Dias</option>
+              <option value="Igreja Luterana">Igreja Luterana</option>
+              <option value="Igreja Metodista">Igreja Metodista</option>
+              <option value="Igreja Ortodoxa">Igreja Ortodoxa</option>
+              <option value="Igreja Pentecostal">Igreja Pentecostal</option>
+              <option value="Igreja Presbiteriana">Igreja Presbiteriana</option>
+              <option value="Igreja Universal do Reino de Deus">Igreja Universal do Reino de Deus</option>
+              <option value="Islamismo">Islamismo</option>
+              <option value="Israelita">Israelita</option>
+              <option value="Jainismo">Jainismo</option>
+              <option value="Judaísmo">Judaísmo</option>
+              <option value="Judaísmo Messiânico">Judaísmo Messiânico</option>
+              <option value="Kemetismo">Kemetismo</option>
+              <option value="Krishnaísmo">Krishnaísmo</option>
+              <option value="Luteranismo">Luteranismo</option>
+              <option value="Maconaria">Maconaria</option>
+              <option value="Mandeísmo">Mandeísmo</option>
+              <option value="Maniqueísmo">Maniqueísmo</option>
+              <option value="Maranata">Maranata</option>
+              <option value="Messianismo">Messianismo</option>
+              <option value="Misticismo">Misticismo</option>
+              <option value="Mitologia Grega">Mitologia Grega</option>
+              <option value="Mitologia Nórdica">Mitologia Nórdica</option>
+              <option value="Monofisismo">Monofisismo</option>
+              <option value="Monoteísmo">Monoteísmo</option>
+              <option value="Moravianismo">Moravianismo</option>
+              <option value="Movimento Hare Krishna">Movimento Hare Krishna</option>
+              <option value="Movimento Holiness">Movimento Holiness</option>
+              <option value="Movimento Rastafári">Movimento Rastafári</option>
+              <option value="Muçulmano">Muçulmano</option>
+              <option value="Muçulmano Xiita">Muçulmano Xiita</option>
+              <option value="Muçulmano Sunita">Muçulmano Sunita</option>
+              <option value="Mórmon">Mórmon</option>
+              <option value="Naturismo Espiritual">Naturismo Espiritual</option>
+              <option value="Neopaganismo">Neopaganismo</option>
+              <option value="Nicolaísmo">Nicolaísmo</option>
+              <option value="Nihilismo">Nihilismo</option>
+              <option value="Nova Era">Nova Era</option>
+              <option value="Ocultismo">Ocultismo</option>
+              <option value="Omnismo">Omnismo</option>
+              <option value="Ortodoxia">Ortodoxia</option>
+              <option value="Pagão">Pagão</option>
+              <option value="Pastafarianismo">Pastafarianismo</option>
+              <option value="Pelasgianismo">Pelasgianismo</option>
+              <option value="Pentecostalismo">Pentecostalismo</option>
+              <option value="Presbiterianismo">Presbiterianismo</option>
+              <option value="Protestantismo">Protestantismo</option>
+              <option value="Quakerismo">Quakerismo</option>
+              <option value="Rastafarianismo">Rastafarianismo</option>
+              <option value="Reformismo">Reformismo</option>
+              <option value="Religião Afro-brasileira">Religião Afro-brasileira</option>
+              <option value="Religião Egípcia Antiga">Religião Egípcia Antiga</option>
+              <option value="Religião Grega Antiga">Religião Grega Antiga</option>
+              <option value="Religião Indígena">Religião Indígena</option>
+              <option value="Religião Nórdica Antiga">Religião Nórdica Antiga</option>
+              <option value="Religiões Afro">Religiões Afro</option>
+              <option value="Religiões Indianas">Religiões Indianas</option>
+              <option value="Religiões Orientais">Religiões Orientais</option>
+              <option value="Religiões Tribais Africanas">Religiões Tribais Africanas</option>
+              <option value="Religiosidade Popular">Religiosidade Popular</option>
+              <option value="Religiosidade Sincrética">Religiosidade Sincrética</option>
+              <option value="Romanismo">Romanismo</option>
+              <option value="Rosacrucianismo">Rosacrucianismo</option>
+              <option value="Satanismo">Satanismo</option>
+              <option value="Scientology">Scientology</option>
+              <option value="Seicho-No-Ie">Seicho-No-Ie</option>
+              <option value="Shaivismo">Shaivismo</option>
+              <option value="Shaktismo">Shaktismo</option>
+              <option value="Shamanismo">Shamanismo</option>
+              <option value="Shintoísmo">Shintoísmo</option>
+              <option value="Sijismo">Sijismo</option>
+              <option value="Sincretismo">Sincretismo</option>
+              <option value="Spiritualismo">Spiritualismo</option>
+              <option value="Stoicismo">Stoicismo</option>
+              <option value="Sufismo">Sufismo</option>
+              <option value="Sunitismo">Sunitismo</option>
+              <option value="Taoismo">Taoismo</option>
+              <option value="Teísmo">Teísmo</option>
+              <option value="Teosofia">Teosofia</option>
+              <option value="Testemunhas de Jeová">Testemunhas de Jeová</option>
+              <option value="Thelema">Thelema</option>
+              <option value="Theravada">Theravada</option>
+              <option value="Tradicionalismo">Tradicionalismo</option>
+              <option value="Trinitarismo">Trinitarismo</option>
+              <option value="Umbanda">Umbanda</option>
+              <option value="Unitarismo">Unitarismo</option>
+              <option value="Universalismo">Universalismo</option>
+              <option value="Vedanta">Vedanta</option>
+              <option value="Vishnuísmo">Vishnuísmo</option>
+              <option value="Vodu">Vodu</option>
+              <option value="Wicca">Wicca</option>
+              <option value="Xamanismo">Xamanismo</option>
+              <option value="Xintoísmo">Xintoísmo</option>
+              <option value="Zoroastrismo">Zoroastrismo</option>
+            </select>
+          </div>
+
           <button class="botao" onclick="cadastrar()">Cadastrar</button><br><br>
-        <center><span>Já tem uma conta? Faça seu <strong class="redirecionamento"><a href="login.html" style="text-decoration: none; color: chocolate;"> login!</a></strong></span></center>
+          <center><span>Já tem uma conta? Faça seu <strong class="redirecionamento"><a href="login.html"
+                  style="text-decoration: none; color: chocolate;"> login!</a></strong></span>
+          </center>
         </div>
-        <div id="div_aguardar" class="loading-div">
-          <img src="./imagens/aguarde-pink2.gif" id="loading-gif" />
+
+         <div id="div_aguardar" class="loading-div">
+          <img src="./imagens/aguarde-orange.gif" id="loading-gif">
         </div>
 
         <div id="div_erros_login"></div>
@@ -97,7 +255,7 @@
     </div>
   </div>
 
-  
+
 </body>
 
 </html>
@@ -116,7 +274,7 @@
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nomeCompleto_input.value;
-    var religiaoVar = religiao_input.value;
+    var religiaoVar = religiao.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
@@ -126,25 +284,25 @@
 
     if (
       (nomeVar.length < 1) ||
-      (religiaoVar < 1) ||
+      (religiaoVar == null || religiaoVar == undefined || religiaoVar == '#') ||
       (!emailVar.includes("@" && ".")) ||
       (senhaVar.length <= 6) ||
-      (confirmacaoSenhaVar != senhaVar) 
+      (confirmacaoSenhaVar != senhaVar)
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "(Mensagem de erro para campos com valores inválidos)";
 
-        finalizarAguardar();
-        return false;
-    }    
+      finalizarAguardar();
+      return false;
+    }
 
     if (
       nomeVar == "" ||
       religiaoVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" 
+      confirmacaoSenhaVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -166,9 +324,9 @@
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
-        religiaoServer: religiaoVar,
         emailServer: emailVar,
-        senhaServer: senhaVar
+        senhaServer: senhaVar,
+        religiaoServer: religiaoVar
       }),
     })
       .then(function (resposta) {
@@ -199,25 +357,25 @@
   }
 
   // Listando usuários cadastrados 
-function listar() {
-  fetch("/usuarios/listar", {
-    method: "GET",
-  })
-    .then(function (resposta) {
-      resposta.json().then((usuarios) => {
-        usuarios.forEach((usuario) => {
-          listaUsuariosCadastrados.push(usuario);
-
-          console.log("listaUsuariosCadastrados");
-          console.log(listaUsuariosCadastrados); // Exemplo: acessando o email do primeiro usuário
-        });
-      });
+  function listar() {
+    fetch("/usuarios/listar", {
+      method: "GET",
     })
-    .catch(function (resposta) {
-      console.log(`#ERRO: ${resposta}`);
-    });
+      .then(function (resposta) {
+        resposta.json().then((usuarios) => {
+          usuarios.forEach((usuario) => {
+            listaUsuariosCadastrados.push(usuario);
 
-    
+            console.log("listaUsuariosCadastrados");
+            console.log(listaUsuariosCadastrados); // Exemplo: acessando o email do primeiro usuário
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+
   }
 
 
