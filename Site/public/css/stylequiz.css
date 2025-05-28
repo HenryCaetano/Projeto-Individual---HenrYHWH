@@ -8,10 +8,11 @@
   border-bottom: 1px solid #ffffff00;
   position: fixed;
   width: 100%;
-  z-index: 1000; /* fica na frente de outros elementos */
+  z-index: 1000;
+  /* fica na frente de outros elementos */
   color: #000000;
   padding: 10px 0;
-  margin-top: -9.5vh;
+  margin-top: -10vh;
   font-size: 16px;
 
 }
@@ -29,7 +30,7 @@
   background-size: cover;
   margin: auto;
   justify-content: center;
- 
+
 }
 
 .container .logo {
@@ -70,47 +71,50 @@
 }
 
 :root {
-    --primary-brand-color: #ED145B;
-    --secondary-brand-color: #0762C8;
-    --success: #198754;
-    --success-dark: #095c36;
-    --success-light: #9dd3ba;
-    --warning: #ffc107;
-    --warning-dark: #705400;
-    --warning-light: #fdebb3;
-    --danger: #dc3545;
-    --danger-dark: #990c19;
-    --danger-light: #f0c1c6;
-    --new-gray: #CCCCCC;
-    --new-black: #212427;
-    --new-white: #E8E8E8;
-    --tamanho-header: 80px;
-    
-    
+  --primary-brand-color: #ED145B;
+  --secondary-brand-color: #0762C8;
+  --success: #198754;
+  --success-dark: #095c36;
+  --success-light: #9dd3ba;
+  --warning: #ffc107;
+  --warning-dark: #705400;
+  --warning-light: #fdebb3;
+  --danger: #dc3545;
+  --danger-dark: #990c19;
+  --danger-light: #f0c1c6;
+  --new-gray: #CCCCCC;
+  --new-black: #212427;
+  --new-white: #E8E8E8;
+  --tamanho-header: 80px;
+
+
 }
 
 body {
-    color: var(--new-black);
-    background-color: var(--new-white);
-    font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
+  color: var(--new-black);
+  background-color: var(--new-white);
+  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 
-.antesDeComecar{
+.antesDeComecar {
   background-image: url(../imagens/apostolos.png);
   width: auto;
-  height: 90.9vh;
+  height: 120vh;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   margin-top: -10px;
+
 }
 
-#pontuacaoEJogo{
-    margin-top: var(--tamanho-header); /* ou 80px */
-    padding-top: 16px; /* espaço extra opcional */
+#pontuacaoEJogo {
+  margin-top: var(--tamanho-header);
+  /* ou 80px */
+  padding-top: 16px;
+  /* espaço extra opcional */
 
 }
 
@@ -131,131 +135,151 @@ body {
 
 
 button {
-    
-    font-family: monospace;
-    font-weight: bold;
-    width: 10vh;
-    justify-content: center;
-    
-    margin-top: 5vh
+  font-family: monospace;
+  font-weight: bold;
+  width: 10vh;
+  justify-content: center;
+  margin-top: 5vh;
+
 }
 
 
-
-
-.submeter{
-  background-color: #70f847;
-  border-radius: 20px;
-  border: 1px #70f847;
+.submeter {
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  border: 1px #919191;
   padding: 15px;
   padding-left: 10vh;
   padding-right: 10vh;
-  transition: 0.3s
+  transition: 0.3s;
+  display: flex;
 
 }
 
-.avancar{
-  background-color: #f7f200;
-  border-radius: 20px;
-  border: 1px #f7f200;
+.avancar {
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  border: 1px #919191;
   padding: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10vh;
+  padding-right: 10vh;
   transition: 0.3s;
+  display: flex;
 
 }
 
-.tentarNovamente{
-  background-color: #fd6741;
-  border-radius: 20px;
-  border: 1px #fd6741;
+.tentarNovamente {
+  background-color: #f3f3f3;
+  ;
+  border-radius: 5px;
+  border: 1px #919191;
   padding: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10vh;
+  padding-right: 10vh;
   transition: 0.3s;
-  
+  display: flex;
+
 }
 
 /*hover*/
-.submeter:hover{
+.submeter:hover {
   transform: scale(1.1);
-  background-color: #bbffa7;
+  background-color: #bcceff7e;
+  border: 2px #6f95ff;
   cursor: pointer;
 
 }
 
-.avancar:hover{
-transform: scale(1.1);
-  background-color: #f2ffa7;
+.avancar:hover {
+  transform: scale(1.1);
+  background-color: #bcceff7e;
+  border: 2px #6f95ff;
   cursor: pointer;
 
 }
 
-.tentarNovamente:hover{
-transform: scale(1.1);
-  background-color: #ffcaa7;
+.tentarNovamente:hover {
+  transform: scale(1.1);
+  background-color: #bcceff7e;
+  border: 2px #6f95ff;
   cursor: pointer;
 
 }
 
+.espacamento span{
+  padding-bottom: 1.99vh;
+
+}
 
 
+.butoes {
+  margin-left: 20vh;
 
-.botaoIniciarJogo{
+}
 
+.botaoIniciarJogo {
   margin-left: 95vh;
-  margin-top: 45vh
+  margin-top: 45vh;
 
 }
 
 .flex-colunar {
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff8e;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff8e;
 }
 
-.width-fit-content .joguinho{
-    width: 100%;
-    height: auto;
+.width-fit-content .joguinho {
+  width: 100%;
+  height: auto;
 }
 
 .border-primary {
-    border: 3px solid var(--primary-brand-color);
+  border: 3px solid var(--primary-brand-color);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 30%;
+  margin-left: 67vh;
+  margin-bottom: 2vh;
+
 }
 
 .border-secondary {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    width: 30%;
-    margin-left: 67vh;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 30%;
+  margin-left: 67vh;
 }
 
 .padding-8 {
-    padding: 8px;
+  padding: 8px;
 }
 
 .text-bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .text-success-with-bg {
-    color: var(--success-dark);
-    background-color: var(--success-light);
+  color: var(--success-dark);
+  background-color: var(--success-light);
 }
 
 .text-warning-with-bg {
-    color: var(--warning-dark);
-    background-color: var(--warning-light);
+  color: var(--warning-dark);
+  background-color: var(--warning-light);
 }
 
 .text-danger-with-bg {
-    color: var(--danger-dark);
-    background-color: var(--danger-light);
+  color: var(--danger-dark);
+  background-color: var(--danger-light);
 }
 
 .text-new-gray {
-    color: var(--new-gray);
+  color: var(--new-gray);
 }

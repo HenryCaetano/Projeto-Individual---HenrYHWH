@@ -21,8 +21,8 @@ create table usuario(
 
 CREATE TABLE aviso (
 	id 						INT PRIMARY KEY AUTO_INCREMENT,
-	titulo 					VARCHAR(100),
-	descricao 				VARCHAR(150),
+	titulo 					VARCHAR(500),
+	descricao 				VARCHAR(500),
 	fk_usuario 				INT,
 	CONSTRAINT chk_aviso FOREIGN KEY fk_usuario_(fk_usuario) REFERENCES usuario(id)
 );
@@ -36,11 +36,11 @@ create table quiz (
 
 create table questao (
 	id 						int primary key auto_increment,
-	enunciado 				varchar(100),
-    alternativa_a 			varchar(100),
-    alternativa_b 			varchar(100),
-    alternativa_c 			varchar(100),
-    alternativa_d 			varchar(100),
+	enunciado 				varchar(500),
+    alternativa_a 			varchar(500),
+    alternativa_b 			varchar(500),
+    alternativa_c 			varchar(500),
+    alternativa_d 			varchar(500),
     alternativa_correta 	char(1),
     fkquiz_questao 			int,
     constraint chk_questao foreign key fk_quiz_questao(fkquiz_questao) references quiz(id)
@@ -63,9 +63,16 @@ INSERT INTO quiz (titulo) VALUES ('Quiz de Exemplo');
 
 INSERT INTO questao (enunciado, alternativa_a, alternativa_b, alternativa_c, alternativa_d, alternativa_correta, fkquiz_questao)
 VALUES 
-('Qual mês tem 30 dias?', 'Janeiro', 'Dezembro', 'Junho', 'Agosto', 'C', 1),
-('Quantas horas tem em um dia?', '30 horas', '38 horas', '48 horas', '24 horas', 'D', 1),
-('Qual destes números é ímpar?', 'Dez', 'Doze', 'Oito', 'Onze', 'D', 1);
+('Qual é a fonte não-cristã mais antiga que menciona Jesus?', 'Flávio Josefo (Antiguidades Judaicas)', 'Tácito (Anais)', 'Plínio, o Jovem (Cartas)', 'Suetônio (Vidas dos Césares)', 'B', 1),
+('Qual destes historiadores judeus do século I menciona Jesus?', 'Fílon de Alexandria', 'Justo de Tiberíades', 'Flávio Josefo', 'Nenhum dos acima', 'C', 1),
+('Qual destes é um argumento usado por estudiosos para afirmar a historicidade de Jesus?', 'Existência de relatos de milagres', 'Múltiplas fontes independentes', 'Artefatos arqueológicos com seu nome', 'Registros oficiais romanos detalhados', 'B', 1),
+('Qual destes eventos da vida de Jesus é considerado historicamente mais provável pela maioria dos estudiosos?', 'Nascimento virginal', 'Batismo por João Batista', 'Transfiguração', 'Ressurreição física', 'B', 1),
+('O que o "critério da dissimilaridade" sugere sobre Jesus?', 'Que ele era diferente de outros líderes religiosos', 'Que elementos que não podem ser derivados do judaísmo ou do cristianismo primitivo provavelmente são históricos', 'Que os evangelhos são completamente diferentes entre s', 'Que não há similaridade entre as fontes cristãs e não-cristãs', 'B', 1),
+('Qual destes títulos atribuídos a Jesus é considerado pelo consenso acadêmico como provavelmente usado por ele mesmo?', 'Cristo (Messias)', 'Filho de Deus', 'Filho do Homem', 'Senhor (Kyrios)', 'C', 1),
+('Qual é a posição do consenso acadêmico sobre a existência histórica de Jesus?', 'Jesus é uma figura completamente mítica', 'Há dúvidas significativas sobre sua existência', 'Ele existiu, mas quase nada pode ser conhecido sobre ele', 'Ele existiu como um pregador judeu do século I', 'D', 1),
+('Qual destes elementos da narrativa da paixão é considerado historicamente mais confiável?', 'A última ceia como uma refeição pascal', 'O julgamento perante o Sinédrio', 'A libertação de Barrabás', 'As palavras exatas de Jesus na cruz', 'C', 1),
+('Qual destas características do Jesus histórico é mais amplamente aceita?', 'Ele era um carpinteiro de Nazaré', 'Ele falava fluentemente grego', 'Ele era um zelota revolucionário', 'Ele era essênio ou tinha ligações com Qumran', 'A', 1),
+('Qual destes eventos é considerado o mais seguro historicamente?', 'A crucificação sob Pôncio Pilatos', 'Os detalhes do nascimento em Belém', 'A tentação no deserto', 'A ascensão aos céus', 'A', 1);
 
 
 

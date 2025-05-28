@@ -9,7 +9,7 @@
     <title>AquaTech | Tempo Real</title>
 
 
-    
+
     <link rel="stylesheet" href="./css/stylequiz.css" />
 
     <script src="../js/sessao.js"></script>
@@ -40,85 +40,89 @@
         </div>
     </div>
 
-    
+
 
     <div id="pontuacaoEJogo">
-        
+
         <div class="antesDeComecar">
-            <button id="btnIniciarQuiz" onclick="iniciarQuiz()" class="botaoIniciarJogo">INICIAR QUIZ</button>  
-            
+            <button id="btnIniciarQuiz" onclick="iniciarQuiz()" class="botaoIniciarJogo">INICIAR QUIZ</button>
 
 
 
 
-        
 
-        <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
-            <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
-                <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
-                <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+
+
+            <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+                <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
+                    <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
+                    <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+                </div>
+                <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+                    <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+                        <span id="spanPontuacaoFinal">***</span>
+                    </span>
+                    <span id="msgFinal" class="width-fit-content">***</span>
+                </div>
             </div>
-            <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
-                <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
-                    <span id="spanPontuacaoFinal">***</span>
-                </span>
-                <span id="msgFinal" class="width-fit-content">***</span>
+
+            <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <div id="infoQuestao" class="padding-8">
+                    <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span>/<span id="qtdQuestoes"></span>
+                    </span>
+                </div>
+
+                <div id="imagemQuestao">
+
+                </div>
+
+                <div id="perguntaDaQuestaoAtual" class="padding-8">
+                    <span id="spanQuestaoExibida" class="text-bold"></span>
+                </div>
+
+                <div id="infoAlternativas" class="padding-8">
+                    <span style="color: rgb(255, 136, 68); font-weight: bold;"><em>Escolha uma opção dentre as
+                            abaixo:</em></span>
+                </div>
+
+                <div id="opcoes" class="espacamento flex-colunar padding-8">
+                    <span>
+                        <input type="radio" id="primeiraOpcao" name="option" class="radio" value="A" />
+                        <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                    </span>
+                    <span>
+                        <input type="radio" id="segundaOpcao" name="option" class="radio" value="B" />
+                        <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                    </span>
+                    <span>
+                        <input type="radio" id="terceiraOpcao" name="option" class="radio" value="C" />
+                        <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                    </span>
+                    <span>
+                        <input type="radio" id="quartaOpcao" name="option" class="radio" value="D" />
+                        <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                    </span>
+                </div>
+
+                <div id="botoes" class="butoes flex-colunar padding-8">
+                    <button onclick="submeter()" id="btnSubmeter" class="submeter">Submeter resposta</button>
+                    <button onclick="avancar()" id="btnProx" disabled class="avancar">Avançar para próxima
+                        questão</button>
+                    <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
+                    <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled class="tentarNovamente">Tentar
+                        novamente</button>
+                </div>
+
             </div>
+
         </div>
 
-        <div id="jogo" class="width-fit-content flex-colunar border-secondary">
-
-            <div class="progress-container">
-                <div class="progress-bar" id="progressBar"></div>
-            </div>
-            <div id="infoQuestao" class="padding-8">
-                <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
-                    questões.</span>
-            </div>
-
-            <div>
-                <img class="imagemQuestao" src="./imagens/sodomaegomorra.png" style="height: 100px; width: auto; padding: 10px;">
-            </div>
-
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
-                <span id="spanQuestaoExibida" class="text-bold"></span>
-            </div>
-
-            <div id="infoAlternativas" class="padding-8">
-                <span><em>Escolha uma opção dentre as abaixo:</em></span>
-            </div>
-
-            <div id="opcoes" class="flex-colunar padding-8">
-                <span>
-                    <input type="radio" id="primeiraOpcao" name="option" class="radio" value="A" />
-                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
-                </span>
-                <span>
-                    <input type="radio" id="segundaOpcao" name="option" class="radio" value="B" />
-                    <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
-                </span>
-                <span>
-                    <input type="radio" id="terceiraOpcao" name="option" class="radio" value="C" />
-                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
-                </span>
-                <span>
-                    <input type="radio" id="quartaOpcao" name="option" class="radio" value="D" />
-                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
-                </span>
-            </div>
-
-            <div id="botoes" class="flex-colunar padding-8">
-                <button onclick="submeter()" id="btnSubmeter" class="submeter">Submeter resposta</button>
-                <button onclick="avancar()" id="btnProx" disabled class="avancar">Avançar para próxima questão</button>
-                <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
-                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled class="tentarNovamente">Tentar novamente</button>
-            </div>
-
-            
-
-        </div>
-        
     </div>
+
 
 
 </body>
@@ -315,6 +319,27 @@
     }
 
     function avancar() {
+
+        const imagensQuestao = [
+
+            'imagens/papiroEscritor.png',
+            'imagens/sudary.png',
+            'imagens/saintPaul.png',
+            'imagens/saintPeter.png',
+            'imagens/jesusShineAbsolute.png',
+            'imagens/forgiveme_Lord.png',
+            'imagens/thekiss.png',
+            'imagens/theychose.png',
+            'imagens/PaulandLuke.png',
+            'imagens/Paulwritting.png'
+
+        ]
+
+        const indexAleatorio = Math.floor(Math.random() * imagensQuestao.length);
+        let imagemSelecionada = imagensQuestao[indexAleatorio];
+
+        document.getElementById('imagemQuestao').innerHTML = `<img src="${imagemSelecionada}" style="height: 200px; width: auto; padding: 10px;">`;
+
         btnProx.disabled = true
         btnSubmeter.disabled = false
 
@@ -329,6 +354,8 @@
             finalizarJogo()
         }
         limparCoresBackgroundOpcoes()
+
+
     }
 
     function tentarNovamente() {
@@ -342,7 +369,7 @@
         const options = document.getElementsByName("option");
         const idUsuario = sessionStorage.ID_USUARIO;
 
-        
+
 
         let respostaEscolhida = null;
 
@@ -355,6 +382,7 @@
                     pontuacaoFinal++;
                     certas++;
                     document.getElementById("spanCertas").innerHTML = certas;
+
                 } else {
                     const wrongLabelId = option.labels[0].id;
                     const corretaLabelId = [...options].find(opt => opt.value === respostaQuestaoAtual).labels[0].id;
@@ -364,6 +392,7 @@
                     tentativaIncorreta++;
                     erradas++;
                     document.getElementById("spanErradas").innerHTML = erradas;
+
                 }
 
                 // Apenas uma alternativa pode ser selecionada, então já pode parar aqui
