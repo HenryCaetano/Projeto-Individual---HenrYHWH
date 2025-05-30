@@ -98,11 +98,26 @@ body {
   padding: 0;
 }
 
+.prontoDesafio{
+  display: flex;
+  justify-content: center;
+  margin-top: -30vh;
+  font-size: 4vh;
+  color: #000000;
+  font-weight: bolder;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.prontoDesafio:hover{
+cursor: not-allowed;
+
+}
 
 .antesDeComecar {
   background-image: url(../imagens/apostolos.png);
   width: auto;
-  height: 120vh;
+  height: 150.5vh;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -218,9 +233,29 @@ button {
 }
 
 .botaoIniciarJogo {
-  margin-left: 95vh;
+  margin-left: 88vh;
   margin-top: 45vh;
+  background-color: #fffda3;
+  border: 3px #fffda3;
+  border-radius: 10px;
+  padding: 20px;
+  padding-right: 14.5vh;
+  padding-left: 10vh;
+  color: #000000;
+  font-weight: bold;
+  transition: 0.3s;
+  
+}
 
+.botaoIniciarJogo:hover{
+  background-color: #ffc107;
+  transform: scale(1.2);
+  cursor: pointer;
+  color: #000000;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  filter: drop-shadow(0 0px 200px rgba(255, 254, 176, 0.514)) drop-shadow(0 0px 100px rgb(255, 255, 255)) brightness(1.3);
+  
 }
 
 .flex-colunar {
@@ -235,7 +270,7 @@ button {
 }
 
 .border-primary {
-  border: 3px solid var(--primary-brand-color);
+  border-bottom: 5px solid #cfcfcf;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -244,6 +279,7 @@ button {
   width: 30%;
   margin-left: 67vh;
   margin-bottom: 2vh;
+
 
 }
 
@@ -267,17 +303,20 @@ button {
 
 .text-success-with-bg {
   color: var(--success-dark);
-  background-color: var(--success-light);
+  font-weight: bold;
+  
 }
 
 .text-warning-with-bg {
   color: var(--warning-dark);
-  background-color: var(--warning-light);
+  font-weight: bold;
+  
 }
 
 .text-danger-with-bg {
   color: var(--danger-dark);
-  background-color: var(--danger-light);
+  font-weight: bold;
+  
 }
 
 .text-new-gray {

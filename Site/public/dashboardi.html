@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Dashboard Quiz</title>
@@ -11,11 +12,9 @@
 <body onload="iniciarDashboard(); validarSessao();">
     <div class="janela">
         <div class="header-left">
-            <h1>Quiz de Jesus</h1>
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-            <div class="btn-nav">
+            
+
+            <div class="btn-nav" style="display: none;">
                 <h3>Gráficos</h3>
             </div>
             <div class="btn-logout" onclick="window.location.href='./index.html'">
@@ -24,16 +23,37 @@
         </div>
 
         <div class="dash">
-            <div id="graficos">
+            <div class="hello">
+                <h1>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <div class="kpi1">
+
+                <span id="primeiraKPI">questão mais acertada</span>
+
+            </div>
+            <div class="kpi2">
+
+                <span id="segundaKPI">religião predominante</span>
+                
+            </div>
+            <div class="kpi3">
+
+                <span id="terceiraKPI">média de acerto entre todas as questões</span>
+                
+            </div>
+
+            
+            <div id="graficos" class="graficoss">
                 <div class="graph">
                     <h3 style="color: antiquewhite;">Acertos por Questão</h3>
                     <canvas id="graficoBarra"></canvas>
                 </div>
-                <div class="graph">
+                <div class="graph ">
                     <h3 style="color: antiquewhite;">Média de Acertos</h3>
                     <canvas id="graficoMedia"></canvas>
                 </div>
-                <div class="graph">
+                <div class="graph graficoMedia">
                     <h3 style="color: antiquewhite;">Usuários com Mais Acertos</h3>
                     <canvas id="graficoPizza"></canvas>
                 </div>
@@ -73,7 +93,7 @@
                             datasets: [{
                                 label: 'Acertos por Questão',
                                 data: dados,
-                                backgroundColor: 'rgba(54, 162, 235, 0.6)'
+                                backgroundColor: 'rgb(252, 197, 79)'
                             }]
                         }
                     };
@@ -94,7 +114,7 @@
                         soma += res[i]["Total de Acerto"];
                     }
 
-                    let media = soma / res.length;
+                    let media = (soma / res.length) * 100;
 
                     const config = {
                         type: 'bar',
@@ -102,8 +122,8 @@
                             labels: ['Média de Acertos'],
                             datasets: [{
                                 label: 'Média',
-                                data: [media],
-                                backgroundColor: 'rgba(255, 206, 86, 0.7)'
+                                data: [media.toFixed(2)],
+                                backgroundColor: 'rgb(255, 246, 227)'
                             }]
                         }
                     };
@@ -133,7 +153,7 @@
                             datasets: [{
                                 label: 'Acertos',
                                 data: dados,
-                                backgroundColor: ['red', 'blue', 'green', 'orange', 'purple']
+                                backgroundColor: ['rgb(255, 244, 183)', 'rgb(252, 221, 86)', 'rgb(255, 175, 54)', 'rgb(255, 217, 160)', 'rgb(224, 153, 0)']
                             }]
                         }
                     };
@@ -163,7 +183,7 @@
                             datasets: [{
                                 label: 'Religiões (simulação de nuvem)',
                                 data: dados,
-                                backgroundColor: 'rgba(153, 102, 255, 0.7)'
+                                backgroundColor: '#ecd54d'
                             }]
                         }
                     };
@@ -174,4 +194,5 @@
         });
     }
 </script>
+
 </html>

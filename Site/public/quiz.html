@@ -45,9 +45,9 @@
     <div id="pontuacaoEJogo">
 
         <div class="antesDeComecar">
-            <button id="btnIniciarQuiz" onclick="iniciarQuiz()" class="botaoIniciarJogo">INICIAR QUIZ</button>
-
-
+            <button id="btnIniciarQuiz" onclick="iniciarQuiz()" class="botaoIniciarJogo">SEMPRE PRONTO</button>
+            
+            <div class="prontoDesafio"><h1>Pronto para um desafio, <span id='b_usuario'></span>?</h1></div>
 
 
 
@@ -59,7 +59,7 @@
                     <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
                 </div>
                 <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
-                    <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+                    <span id="pontuacaoFinal" class="width-fit-content" style="font-weight: bolder;">Pontuação Final:
                         <span id="spanPontuacaoFinal">***</span>
                     </span>
                     <span id="msgFinal" class="width-fit-content">***</span>
@@ -123,8 +123,6 @@
 
     </div>
 
-
-
 </body>
 
 </html>
@@ -176,7 +174,7 @@
             pergunta: "O que o 'critério da dissimilaridade' sugere sobre Jesus?",
             A: "Que ele era diferente de outros líderes religiosos",
             B: "Que elementos que não podem ser derivados do judaísmo ou do cristianismo primitivo provavelmente são históricos",
-            C: "Que os evangelhos são completamente diferentes entre s",
+            C: "Que os evangelhos são completamente diferentes entre si",
             D: "Que não há similaridade entre as fontes cristãs e não-cristãs",
             Correta: "B"
         },
@@ -250,11 +248,27 @@
     // função da barra de progresso
     function updateProgressBar() {
         const progressBar = document.getElementById('progressBar');
-        const progress = ((numeroDaQuestaoAtual) / quantidadeDeQuestoes) * 100;
+        const progress = ((numeroDaQuestaoAtual + 1) / quantidadeDeQuestoes) * 100;
         progressBar.style.width = progress + '%';
     }
 
     function iniciarQuiz() {
+
+        let continuar = prompt(`Atenção: você pode realizar este quiz apenas uma vez!\nTem certeza de que deseja continuar?`).toLocaleLowerCase()
+
+        if(continuar == null || continuar == undefined || continuar == ``){
+
+            alert(`Por favor, preencha o campo corretamente.`)
+            return 
+
+        }
+
+        if(continuar == 'não' || continuar == 'nao'){
+
+            window.location.href='./index.html'
+            return
+
+        }else if(continuar == 'sim'){
         document.getElementById('pontuacao').style.display = "flex"
         document.getElementById('jogo').style.display = "flex"
         document.getElementById('btnIniciarQuiz').style.display = "none"
@@ -267,6 +281,7 @@
         btnProx.disabled = true
         // btnConcluir.disabled = true
         btnTentarNovamente.disabled = true
+        }
     }
 
     function preencherHTMLcomQuestaoAtual(index) {
@@ -446,15 +461,15 @@
         const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
 
         if (porcentagemFinalDeAcertos <= 0.3) {
-            textoParaMensagemFinal = "Parece que você não estudou..."
+            textoParaMensagemFinal = "<img src='./imagens/errado.png' style='height: 100px; width: auto; padding: 10px;'><br>Leia mais a Bíblia e os documentos históricos!"
             classComCoresParaMensagemFinal = "text-danger-with-bg"
         }
-        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
-            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
+        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.7) {
+            textoParaMensagemFinal = "<img src='./imagens/maisoumenos.png' style='height: 100px; width: auto; padding: 10px;'><br>Poxa...você podia mais, ein!"
             classComCoresParaMensagemFinal = "text-warning-with-bg"
         }
-        else if (porcentagemFinalDeAcertos >= 0.9) {
-            textoParaMensagemFinal = "Uau, parabéns!"
+        else if (porcentagemFinalDeAcertos >= 0.7) {
+            textoParaMensagemFinal = "<img src='./imagens/correto.png' style='height: 100px; width: auto; padding: 10px;'><br>Simplesmente incrível 👏 - você é um(a) gênio(a)!"
             classComCoresParaMensagemFinal = "text-success-with-bg"
         }
 
