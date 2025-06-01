@@ -44,7 +44,6 @@ function listar(req, res) {
 }
 
 
-
 function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var religiao = req.body.religiaoServer;
@@ -103,10 +102,22 @@ function listarReligioes(req, res) {
         });
 }
 
+
+function maiorReligiao(req, res) {
+    usuarioModel.obterReligiaoPredominante()
+        .then(result => res.json(result))
+        .catch(erro => {
+            console.error("Erro ao listar a religião predominante:", erro.sqlMessage || erro);
+            res.status(500).json(erro);
+        });
+}
+
 module.exports = {
     autenticar,
     cadastrar,
     listar,
     listarAcertos,
-    listarReligioes
+    listarReligioes,
+    maiorReligiao,
+    
 };

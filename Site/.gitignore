@@ -1,5 +1,6 @@
 # A linha abaixo determina que o diretório node_modules não será enviado ao repositório remoto, nem o packet-lock.json
 node_modules
 package-lock.json
+meuEnderecoIP.txt
 
 .github

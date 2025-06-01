@@ -223,6 +223,7 @@ scroll-behavior: smooth;
   font-weight: bolder;
   transition: background-color 0.5s, color 0.5s;
   transition: 0.3s;
+  cursor: pointer;
 
 }
 
@@ -241,7 +242,7 @@ scroll-behavior: smooth;
   font-weight: bolder;
   transition: background-color 0.5s, color 0.5s;
   transition: 0.3s;
-  
+  cursor: pointer;
 }
 
 .banner .container .saibaMais:hover {

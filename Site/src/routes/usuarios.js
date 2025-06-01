@@ -19,4 +19,6 @@ router.get("/acertos", usuarioController.listarAcertos);
 
 router.get("/religioes", usuarioController.listarReligioes);
 
+router.get("/maiorReligiao", usuarioController.maiorReligiao);
+
 module.exports = router;

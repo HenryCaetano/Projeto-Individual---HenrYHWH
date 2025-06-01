@@ -12,7 +12,7 @@
 <body onload="iniciarDashboard(); validarSessao();">
     <div class="janela">
         <div class="header-left">
-            
+
 
             <div class="btn-nav" style="display: none;">
                 <h3>Gráficos</h3>
@@ -23,58 +23,66 @@
         </div>
 
         <div class="dash">
+
             <div class="hello">
                 <h1>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
 
             <div class="kpi1">
 
-                <span id="primeiraKPI">questão mais acertada</span>
+                <span style='padding-top: -9vh; padding-bottom: 3vh;'>questão com maior acerto:</span>
+                <span id="primeiraKPI" class="maioresAcertos"></span>
 
             </div>
             <div class="kpi2">
 
-                <span id="segundaKPI">religião predominante</span>
-                
+                <span style='padding-bottom: 4vh; margin-top: -3vh;'>Religião mais escolhida:</span>
+                <img src="./imagens/coroa2.png" style='height: 5vh; width: auto; filter: brightness(1.3);'>
+                <span id="segundaKPI" class="mvpReligion"></span>
+
             </div>
             <div class="kpi3">
 
-                <span id="terceiraKPI">média de acerto entre todas as questões</span>
-                
+                <span style='padding-top: -9vh; margin-top: -0.5vh;'>Média de Acertos por Usuário:</span>
+                <span id="terceiraKPI" class="mediaAcertoUser"></span>
+
             </div>
 
-            
+
+
             <div id="graficos" class="graficoss">
+
                 <div class="graph">
-                    <h3 style="color: antiquewhite;">Acertos por Questão</h3>
+                    <h3>Acertos por Questão</h3>
                     <canvas id="graficoBarra"></canvas>
                 </div>
-                <div class="graph ">
-                    <h3 style="color: antiquewhite;">Média de Acertos</h3>
-                    <canvas id="graficoMedia"></canvas>
-                </div>
                 <div class="graph graficoMedia">
-                    <h3 style="color: antiquewhite;">Usuários com Mais Acertos</h3>
+                    <h3>Religiões</h3>
                     <canvas id="graficoPizza"></canvas>
                 </div>
+                <div class=" rankingUsers">
                 <div class="graph">
-                    <h3 style="color: antiquewhite;">Nuvem de Palavras (Religiões)</h3>
-                    <canvas id="graficoNuvem"></canvas>
+                    <h3 style="color: rgb(61, 35, 0);" class="textoRanking">Ranking de Acertos</h3>
+                    <canvas id="graficoRanking"></canvas>
+                </div>
                 </div>
             </div>
+
+
         </div>
-    </div>
 </body>
 
 <script>
     function iniciarDashboard() {
-        plotarGraficoBarras();
-        plotarGraficoMedia();
-        plotarGraficoPizza();
-        plotarGraficoNuvem();
+        acertosQuestoes();
+        religioes();
+        ranking();
+        mediaAcertos();
+        religiaoPredominante();
+        maiotQuestao();
     }
 
-    function plotarGraficoBarras() {
+    function acertosQuestoes() {
         fetch('/respostas/estatisticas').then(function (resposta) {
             if (resposta.ok) {
                 resposta.json().then(function (res) {
@@ -93,8 +101,14 @@
                             datasets: [{
                                 label: 'Acertos por Questão',
                                 data: dados,
-                                backgroundColor: 'rgb(252, 197, 79)'
+                                backgroundColor: 'rgb(206, 143, 9)'
                             }]
+                        },
+
+                        options: {
+
+                            indexAxis: 'x'
+
                         }
                     };
 
@@ -104,67 +118,10 @@
         });
     }
 
-    function plotarGraficoMedia() {
-        fetch('/respostas/estatisticas').then(function (resposta) {
-            if (resposta.ok) {
-                resposta.json().then(function (res) {
-                    let soma = 0;
 
-                    for (let i = 0; i < res.length; i++) {
-                        soma += res[i]["Total de Acerto"];
-                    }
 
-                    let media = (soma / res.length) * 100;
 
-                    const config = {
-                        type: 'bar',
-                        data: {
-                            labels: ['Média de Acertos'],
-                            datasets: [{
-                                label: 'Média',
-                                data: [media.toFixed(2)],
-                                backgroundColor: 'rgb(255, 246, 227)'
-                            }]
-                        }
-                    };
-
-                    new Chart(document.getElementById("graficoMedia"), config);
-                });
-            }
-        });
-    }
-
-    function plotarGraficoPizza() {
-        fetch('/usuarios/acertos').then(function (resposta) {
-            if (resposta.ok) {
-                resposta.json().then(function (res) {
-                    let labels = [];
-                    let dados = [];
-
-                    for (let i = 0; i < res.length; i++) {
-                        labels.push(res[i].nome);
-                        dados.push(res[i].acertos);
-                    }
-
-                    const config = {
-                        type: 'pie',
-                        data: {
-                            labels: labels,
-                            datasets: [{
-                                label: 'Acertos',
-                                data: dados,
-                                backgroundColor: ['rgb(255, 244, 183)', 'rgb(252, 221, 86)', 'rgb(255, 175, 54)', 'rgb(255, 217, 160)', 'rgb(224, 153, 0)']
-                            }]
-                        }
-                    };
-
-                    new Chart(document.getElementById("graficoPizza"), config);
-                });
-            }
-        });
-    }
-
-    function plotarGraficoNuvem() {
+    function religioes() {
         fetch('/usuarios/religioes').then(function (resposta) {
             if (resposta.ok) {
                 resposta.json().then(function (res) {
@@ -177,22 +134,141 @@
                     }
 
                     const config = {
-                        type: 'bar',
+                        type: 'pie',
                         data: {
                             labels: labels,
                             datasets: [{
                                 label: 'Religiões (simulação de nuvem)',
                                 data: dados,
-                                backgroundColor: '#ecd54d'
+                                backgroundColor: ['rgb(255, 244, 183)', 'rgb(252, 221, 86)', 'rgb(255, 175, 54)', 'rgb(255, 217, 160)', 'rgb(224, 153, 0)']
                             }]
                         }
                     };
 
-                    new Chart(document.getElementById("graficoNuvem"), config);
+                    new Chart(document.getElementById("graficoPizza"), config);
                 });
             }
         });
     }
+
+    function ranking() {
+        fetch('/usuarios/acertos').then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (res) {
+                    let labels = [];
+                    let dados = [];
+
+                    for (let i = 0; i < res.length; i++) {
+                        labels.push(res[i].nome);
+                        dados.push(res[i].acertos);
+                    }
+
+                    const config = {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Acertos',
+                                data: dados,
+                                backgroundColor: '#a55d00'
+                            }]
+                        },
+
+                        options: {
+
+                            indexAxis: 'y'
+
+                        }
+                    };
+
+                    new Chart(document.getElementById("graficoRanking"), config);
+                });
+            }
+        });
+    }
+
+
+
+    function mediaAcertos() {
+        fetch('/respostas/estatisticas').then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (res) {
+                    let soma = 0;
+
+                    for (let i = 0; i < res.length; i++) {
+
+                        soma += Number(res[i]["Total de Acerto"]);
+                    }
+
+                    console.log(res);
+                    console.log(soma);
+
+                    let media = (soma / res.length);
+                    console.log(media)
+
+                    let textoMedia = document.getElementById("terceiraKPI");
+
+                    if (media <= 5) {
+
+                        textoMedia.innerHTML = `<span style="color: red;">${media.toFixed(0)}↓↓ </span>`
+
+                    } else {
+
+                        textoMedia.innerHTML = `<span style="color: green;">${media.toFixed(0)}↑↑</span>`
+                    }
+
+
+                });
+            }
+        });
+    }
+
+
+
+    function religiaoPredominante() {
+        fetch('/usuarios/maiorReligiao').then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (res) {
+
+                    let maiorReligiao = ``
+
+                    for (let i = 0; i < res.length; i++) {
+
+                        maiorReligiao = res[i].religiao
+
+                    }
+
+                    let textoMaiorReligiao = document.getElementById("segundaKPI");
+                    textoMaiorReligiao.innerHTML = `${maiorReligiao}`;
+
+                });
+            }
+        });
+    }
+
+
+
+    function maiotQuestao() {
+        fetch('/respostas/maiorQuestao').then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (res) {
+
+                    let maiorQuestao = ``
+
+                    for (let i = 0; i < res.length; i++) {
+
+                        maiorQuestao = res[i].fkquestao_respostas
+
+                    }
+
+                    let textoMaiorQuestao = document.getElementById("primeiraKPI");
+                    textoMaiorQuestao.innerHTML = `Q${maiorQuestao}<img src="./imagens/lampada2.png" style="height: 5vh; width: auto;">`;
+
+                });
+            }
+        });
+    }
+
 </script>
 
 </html>

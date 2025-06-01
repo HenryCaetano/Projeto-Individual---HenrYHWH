@@ -103,6 +103,13 @@ select * from respostas_usuario;
         GROUP BY u.nome
         ORDER BY acertos DESC
         LIMIT 5;
+        
+-- select para saber a religião mais escolhida
+	select u.religiao, count(*) total
+	from usuario u
+	group by u.religiao
+	order by total desc limit 1;	
 
 -- truncate table respostas_usuario;
+
 

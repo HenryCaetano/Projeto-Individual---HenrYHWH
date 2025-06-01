@@ -20,4 +20,13 @@ function estatisticasQuestoes(req, res) {
         });
 }
 
-module.exports = { registrarResposta, estatisticasQuestoes };   
+function questaoMaisAcertada(req, res) {
+    respostaModel.obterQuestaoMaisAcertada()
+        .then(result => res.json(result))
+        .catch(err => {
+            console.error("Erro ao buscar estatísticas:", err);
+            res.status(500).json(err);
+        });
+}
+
+module.exports = {registrarResposta, estatisticasQuestoes, questaoMaisAcertada};   
