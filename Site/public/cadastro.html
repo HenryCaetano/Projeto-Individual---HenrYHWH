@@ -286,12 +286,10 @@
       (nomeVar.length < 1) ||
       (religiaoVar == null || religiaoVar == undefined || religiaoVar == '#') ||
       (!emailVar.includes("@" && ".")) ||
-      (senhaVar.length <= 6) ||
+      (senhaVar.length <= 4) ||
       (confirmacaoSenhaVar != senhaVar)
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para campos com valores inválidos)";
+      alert(`Lembre-se: \n\nO nome deve possuir, pelo menos, 1 caractere\nVocê deve escolher alguma religião\nO email deve conter "@" e "."\nA senha deve ter 5 ou mais dígitos`);
 
       finalizarAguardar();
       return false;
@@ -304,9 +302,7 @@
       senhaVar == "" ||
       confirmacaoSenhaVar == ""
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+      alert(`Os campos não podem estar vazios!`);
 
       finalizarAguardar();
       return false;

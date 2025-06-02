@@ -18,21 +18,10 @@ create table usuario(
 	senha 					varchar(50)
 );
 
-
-CREATE TABLE aviso (
-	id 						INT PRIMARY KEY AUTO_INCREMENT,
-	titulo 					VARCHAR(500),
-	descricao 				VARCHAR(500),
-	fk_usuario 				INT,
-	CONSTRAINT chk_aviso FOREIGN KEY fk_usuario_(fk_usuario) REFERENCES usuario(id)
-);
-
-
 create table quiz (
 	id 						int primary key auto_increment,
 	titulo					varchar(100)
 );
-
 
 create table questao (
 	id 						int primary key auto_increment,
@@ -52,14 +41,13 @@ create table respostas_usuario (
 	fkquestao_respostas 	int,
 	resposta_dada 			char(1),
     resposta_correta 		boolean,
-	dataHora				datetime,
     primary key(fkusuario_respostas, fkquestao_respostas),
     constraint chk_respostas_usuario foreign key fk_usuario_respostas(fkusuario_respostas) references usuario(id),
     constraint chk_respostas_questao foreign key fk_questao_respostas(fkquestao_respostas) references questao(id)
 );
 
 
-INSERT INTO quiz (titulo) VALUES ('Quiz de Exemplo');
+INSERT INTO quiz (titulo) VALUES ('Jesus Cristo -> A Historicidade Comprovada');
 
 INSERT INTO questao (enunciado, alternativa_a, alternativa_b, alternativa_c, alternativa_d, alternativa_correta, fkquiz_questao)
 VALUES 
@@ -75,41 +63,44 @@ VALUES
 ('Qual destes eventos é considerado o mais seguro historicamente?', 'A crucificação sob Pôncio Pilatos', 'Os detalhes do nascimento em Belém', 'A tentação no deserto', 'A ascensão aos céus', 'A', 1);
 
 
+-- selects gerais
+	select * from usuario;
+	select * from quiz;
+	select * from questao;
+	select * from respostas_usuario;
+
 
 -- leitura da dashboard para gráfico de barras quanto as questões
-select res.fkquestao_respostas, count(*) as "Total Realizado", sum(res.resposta_correta) as "Total de Acerto"
-from respostas_usuario  res
-group by res.fkquestao_respostas;
+	select res.fkquestao_respostas, count(*) as "Total Realizado", sum(res.resposta_correta) as "Total de Acerto"
+	from respostas_usuario  res
+	group by res.fkquestao_respostas;
 
+
+-- select para saber os acertos de cada usuário
+	select u.nome, COUNT(*) as acertos
+	from respostas_usuario ru
+	join usuario u ON ru.fkusuario_respostas = u.id
+	where ru.resposta_correta = 1
+	group by u.nome
+	order by acertos desc;
+        
+        
 -- leitura da dashboard para gráfico de nuvem de palavras
-SELECT religiao, COUNT(*) AS quantidade
-        FROM usuario
-        GROUP BY religiao;
-
--- selecionar o cadastro
-select * from usuario;
-
--- selecionar os avisos
-select * from aviso;
-
-select * from quiz;
-select * from questao;
-select * from respostas_usuario;
-
-  SELECT u.nome, COUNT(*) AS acertos
-        FROM respostas_usuario ru
-        JOIN usuario u ON ru.fkusuario_respostas = u.id
-        WHERE ru.resposta_correta = 1
-        GROUP BY u.nome
-        ORDER BY acertos DESC
-        LIMIT 5;
+	select religiao, COUNT(*) AS quantidade
+	from usuario
+	group by religiao;
+        
         
 -- select para saber a religião mais escolhida
 	select u.religiao, count(*) total
 	from usuario u
 	group by u.religiao
-	order by total desc limit 1;	
+	order by total desc limit 1;
 
--- truncate table respostas_usuario;
 
+--  select para saber a questão mais acertada
+	select res.fkquestao_respostas, sum(res.resposta_correta) as totalAcerto
+	from respostas_usuario  res
+	group by res.fkquestao_respostas
+    order by totalAcerto desc limit 1;
 
